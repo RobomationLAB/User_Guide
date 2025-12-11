@@ -119,6 +119,7 @@ jobs:
           # -V CJKsansfont="Noto Sans CJK KR" \
           # -V CJKmonofont="Noto Sans Mono CJK KR" \
           pandoc 구성-요소-및-사용-방법.md \
+            --metadata title=구성-요소-및-사용-방법.md \
             --from markdown+raw_html \
             --highlight-style=tango \
             -H font-custom.tex \
