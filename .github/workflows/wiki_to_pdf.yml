@@ -46,7 +46,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
-            wkhtmltopdf \
             pandoc \
             texlive-xetex \
             texlive-fonts-recommended \
@@ -55,6 +54,13 @@ jobs:
             texlive-lang-chinese \
             lmodern \
             fonts-noto-cjk
+
+      - name: Install wkhtmltopdf (patched)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xfonts-75dpi xfonts-base
+          wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1/wkhtmltox_0.12.6.1-1.focal_amd64.deb
+          sudo dpkg -i wkhtmltox_0.12.6.1-1.focal_amd64.deb
 
       - name: Create custom font LaTeX header
         run: |
