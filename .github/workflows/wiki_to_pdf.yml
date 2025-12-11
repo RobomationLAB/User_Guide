@@ -119,13 +119,13 @@ jobs:
           # -V CJKsansfont="Noto Sans CJK KR" \
           # -V CJKmonofont="Noto Sans Mono CJK KR" \
           pandoc 구성-요소-및-사용-방법.md \
-            --metadata title=구성-요소-및-사용-방법.md \
+            --metadata title="구성-요소-및-사용-방법.md" base-url="" \
             --from markdown+raw_html \
             --highlight-style=tango \
             -H font-custom.tex \
             -c styles/pdf-style.css \
             -o 구성-요소-및-사용-방법.html
-          wkhtmltopdf 구성-요소-및-사용-방법.html 구성-요소-및-사용-방법.pdf
+          wkhtmltopdf --enable-local-file-access 구성-요소-및-사용-방법.html 구성-요소-및-사용-방법.pdf
           
 
           # 기본-블록.pdf에 포함될 Wiki 파일명(확장자 제외)
