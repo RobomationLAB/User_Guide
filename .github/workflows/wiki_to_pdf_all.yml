@@ -1,11 +1,11 @@
 name: Generate PDF from Wiki (All)
 
 on:
-  schedule:
-    - cron: '0 15 * * *' # (UTC 기준 15시 -> 한국 기준 0시) 마다 MD -> PDF 변환
+  # schedule:
+  #   - cron: '0 15 * * *' # (UTC 기준 15시 -> 한국 기준 0시) 마다 MD -> PDF 변환
   workflow_dispatch:
-  repository_dispatch:
-    types: [wiki-updated]
+  # repository_dispatch:
+  #   types: [wiki-updated]
 
 env:
   REPO_OWNER: RobomationLAB # github username 작성
