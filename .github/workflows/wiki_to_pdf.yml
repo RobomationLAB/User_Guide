@@ -107,20 +107,23 @@ jobs:
           done
 
           # PDF 생성
+          # --pdf-engine=xelatex \
+          # -V geometry:margin=1.5cm \
+          # -V linestretch=1.5 \
+          # -V fontsize=11pt \
+          # -V mainfont="Noto Sans CJK KR" \
+          # -V sansfont="Noto Sans CJK KR" \
+          # -V monofont="Noto Sans Mono CJK KR" \
+          # -V CJKmainfont="Noto Sans CJK KR" \
+          # -V CJKsansfont="Noto Sans CJK KR" \
+          # -V CJKmonofont="Noto Sans Mono CJK KR" \
           pandoc 구성-요소-및-사용-방법.md \
-            --pdf-engine=xelatex \
-            -V mainfont="Noto Sans CJK KR" \
-            -V sansfont="Noto Sans CJK KR" \
-            -V monofont="Noto Sans Mono CJK KR" \
-            -V CJKmainfont="Noto Sans CJK KR" \
-            -V CJKsansfont="Noto Sans CJK KR" \
-            -V CJKmonofont="Noto Sans Mono CJK KR" \
-            -H font-custom.tex \
-            -V geometry:margin=1.5cm \
-            -V linestretch=1.5 \
-            -V fontsize=11pt \
+            --from markdown+raw_html \
             --highlight-style=tango \
-            -o 구성-요소-및-사용-방법.pdf
+            -H font-custom.tex \
+            -c styles/pdf-style.css \
+            -o 구성-요소-및-사용-방법.html
+          wkhtmltopdf 구성-요소-및-사용-방법.html 구성-요소-및-사용-방법.pdf
           
 
           # 기본-블록.pdf에 포함될 Wiki 파일명(확장자 제외)
