@@ -1,0 +1,91 @@
+/* ===============================
+   GLOBAL DOCUMENT STYLES
+   =============================== */
+
+html, body {
+    font-family: "Noto Sans CJK KR", sans-serif;
+    font-size: 11pt;                /* corresponds to fontsize=11pt */
+    line-height: 1.5;               /* corresponds to linestretch=1.5 */
+    margin: 1.5cm;                  /* corresponds to geometry:margin=1.5cm */
+    color: #000;
+}
+
+/* Force wkhtmltopdf to embed fonts if available */
+@font-face {
+    font-family: "Noto Sans CJK KR";
+    src: local("Noto Sans CJK KR");
+}
+@font-face {
+    font-family: "Noto Sans Mono CJK KR";
+    src: local("Noto Sans Mono CJK KR");
+}
+
+/* ===============================
+   HEADINGS
+   =============================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Noto Sans CJK KR", sans-serif;
+    font-weight: bold;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+/* ===============================
+   PARAGRAPH / LIST / TABLE
+   =============================== */
+p {
+    margin: 0.5em 0;
+}
+
+ul, ol {
+    margin: 0.5em 0 0.5em 1.2em;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 1em 0;
+    width: 100%;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+}
+
+/* ===============================
+   INLINE CODE & CODE BLOCKS
+   =============================== */
+
+code, pre {
+    font-family: "Noto Sans Mono CJK KR", monospace;
+    font-size: 10pt;
+}
+
+/* Code block styling similar to tango highlight */
+pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 8px;
+    overflow: auto;
+}
+
+/* ===============================
+   IMAGES
+   =============================== */
+/* Important: wkhtmltopdf respects HTML <img width="20%">,
+   so we don't override it! */
+img {
+    display: block;
+    margin: 0.5em 0;
+}
+
+/* ===============================
+   LINKS
+   =============================== */
+a {
+    color: #0055cc;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
