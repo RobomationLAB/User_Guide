@@ -127,7 +127,7 @@ jobs:
           from urllib.parse import urlsplit, unquote
       
           SRC = "merged.md"
-          OUT = "merged_pdf.md"
+          OUT = "구성-요소-및-사용-방법.md"
       
           s = open(SRC, "r", encoding="utf-8").read()
       
@@ -171,7 +171,7 @@ jobs:
           PY
 
           # PDF 생성
-          pandoc merged.md \
+          pandoc 구성-요소-및-사용-방법.md \
             --from markdown+raw_html \
             --pdf-engine=xelatex \
             -V mainfont="Noto Sans CJK KR" \
@@ -185,7 +185,9 @@ jobs:
             -V linestretch=1.5 \
             -V fontsize=11pt \
             --highlight-style=tango \
-            -o merged.pdf
+            -o 구성-요소-및-사용-방법.pdf
+
+          rm -f merged.md merged.html wkhtml.log
           
 
           # 기본-블록.pdf에 포함될 Wiki 파일명(확장자 제외)
