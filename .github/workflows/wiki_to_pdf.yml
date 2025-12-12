@@ -102,12 +102,146 @@ jobs:
 
       - name: Generate PDFs
         run: |
+          set -euo pipefail
+
+          # (중요) 한글 경로 안정화
+          export LANG=C.UTF-8
+          export LC_ALL=C.UTF-8
+          
+          # 메인 레포 assets가 있는지 확인
+          if [ ! -d "$GITHUB_WORKSPACE/assets" ]; then
+            echo "ERROR: $GITHUB_WORKSPACE/assets not found. (메인 레포에 assets 폴더가 없거나 checkout 경로가 다름)"
+            exit 1
+          fi
+          
           cd wiki
-
-          # 구성-요소-및-사용-방법.pdf에 포함될 Wiki 파일명(확장자 제외)
+          
+          # (핵심) PDF 변환은 로컬 파일로 해야 안정적이므로,
+          # 메인 레포 assets를 wiki/assets로 동기화 (wiki에서 pandoc가 assets/...를 찾게끔)
+          rm -rf assets
+          mkdir -p assets
+          rsync -a --delete "$GITHUB_WORKSPACE/assets/" "./assets/"
+          
+          # 공통: <img> → ![](){ width=...\\linewidth } + raw 링크→로컬 assets + 이모지(⚙️/⚠️) 텍스트화
+          preprocess_md () {
+            local SRC="$1"
+            local OUT="$2"
+            python3 - <<'PY'
+          import re, os, unicodedata
+          from urllib.parse import urlsplit, unquote
+          
+          SRC = os.environ["SRC"]
+          OUT = os.environ["OUT"]
+          
+          RAW_PREFIX = "https://raw.githubusercontent.com/RobomationLAB/User_Guide/"
+          
+          # assets 실제 경로 맵 (NFC/NFD)
+          asset_map = {}
+          for root, _, files in os.walk("assets"):
+            for f in files:
+              p = os.path.join(root, f).replace("\\", "/")
+              for norm in ("NFC", "NFD"):
+                asset_map[unicodedata.normalize(norm, p)] = p
+          
+          def url_to_local(url: str) -> str:
+            if url.startswith(RAW_PREFIX):
+              u = urlsplit(url)
+              idx = u.path.find("/assets/")
+              if idx != -1:
+                local = unquote(u.path[idx+1:])  # assets/...
+                for norm in ("NFC", "NFD"):
+                  cand = unicodedata.normalize(norm, local)
+                  if cand in asset_map:
+                    return asset_map[cand]       # 실제 파일 경로 반환
+                return local
+            return url
+          
+          def width_to_attr(width: str) -> str:
+            w = width.strip().strip('"').strip("'")
+            m = re.fullmatch(r"(\d+(?:\.\d+)?)\s*%", w)
+            if m:
+              frac = float(m.group(1)) / 100.0
+              # LaTeX에서 제일 안정적인 폭 지정
+              return f'{{ width={frac:.4f}\\\\linewidth }}'
+            return ""
+          
+          s = open(SRC, "r", encoding="utf-8").read()
+          
+          # (1) 혹시 이전 실험으로 남은 "{ width: 100% }" 같은 잘못된 문법이 있으면 교정
+          def fix_bad_attr(m):
+            frac = float(m.group(1)) / 100.0
+            return f'{{ width={frac:.4f}\\\\linewidth }}'
+          s = re.sub(r"\{\s*width\s*:\s*([0-9.]+)\s*%\s*\}", fix_bad_attr, s, flags=re.IGNORECASE)
+          
+          # (2) <img ...> → pandoc 이미지
+          img_pat = re.compile(r'<img\b([^>]*?)\bsrc="([^"]+)"([^>]*?)>', re.IGNORECASE)
+          
+          def repl_img(m):
+            attrs = (m.group(1) + " " + m.group(3))
+            src = m.group(2)
+            local = url_to_local(src)
+          
+            width_m = re.search(r'\bwidth="([^"]+)"', attrs, re.IGNORECASE)
+            attr = width_to_attr(width_m.group(1)) if width_m else ""
+          
+            alt_m = re.search(r'\balt="([^"]+)"', attrs, re.IGNORECASE)
+            alt = alt_m.group(1) if alt_m else ""
+          
+            return f'![{alt}]({local}){(" " + attr) if attr else ""}'
+          
+          s = img_pat.sub(repl_img, s)
+          s = re.sub(r"<br\s*/?>", "\n", s, flags=re.IGNORECASE)
+          
+          # (3) 이모지 글리프 경고 제거(원하면 다른 텍스트로 바꿔도 됨)
+          s = s.replace("⚙️", "※").replace("⚙", "※")
+          s = s.replace("⚠️", "주의:").replace("⚠", "주의:")
+          
+          open(OUT, "w", encoding="utf-8").write(s)
+          
+          # (4) 존재 체크: 하나라도 없으면 바로 실패시켜 원인을 숨기지 않게 함
+          paths = re.findall(r'!\[[^\]]*\]\(([^)]+)\)', s)
+          missing = [p for p in paths if p.startswith("assets/") and not os.path.exists(p)]
+          print("converted images:", len(paths))
+          print("missing assets:", len(missing))
+          if missing:
+            print("sample missing:", missing[:10])
+            raise SystemExit(2)
+          PY
+          }
+          export -f preprocess_md
+          
+          build_pdf () {
+            local IN_MD="$1"
+            local OUT_PDF="$2"
+            local TMP_MD=".__tmp_pdf__.md"
+          
+            SRC="$IN_MD" OUT="$TMP_MD" preprocess_md "$IN_MD" "$TMP_MD"
+          
+            pandoc "$TMP_MD" \
+              --from markdown+link_attributes \
+              --resource-path=".:./assets" \
+              --pdf-engine=xelatex \
+              -V mainfont="Noto Sans CJK KR" \
+              -V sansfont="Noto Sans CJK KR" \
+              -V monofont="Noto Sans Mono CJK KR" \
+              -V CJKmainfont="Noto Sans CJK KR" \
+              -V CJKsansfont="Noto Sans CJK KR" \
+              -V CJKmonofont="Noto Sans Mono CJK KR" \
+              -H font-custom.tex \
+              -V geometry:margin=1.5cm \
+              -V linestretch=1.5 \
+              -V fontsize=11pt \
+              --highlight-style=tango \
+              -o "$OUT_PDF"
+          
+            rm -f "$TMP_MD"
+          }
+          export -f build_pdf
+          
+          # -----------------------------------------
+          # 구성-요소-및-사용-방법.pdf
           USAGE_PAGES=("상단-메뉴" "에디터" "미리보기")
-
-          ## 파일 묶기
+          
           echo "# 구성 요소 및 사용 방법" > merged.md
           echo "" >> merged.md
           for page in "${USAGE_PAGES[@]}"; do
@@ -121,109 +255,14 @@ jobs:
               echo "" >> merged.md
             fi
           done
-
-          ## raw 링크를 로컬 assets 경로로 변환 (PDF 변환만을 위해)
-          python3 - <<'PY'
-          import re, os, unicodedata
-          from urllib.parse import urlsplit, unquote
-      
-          SRC = "merged.md"
-          OUT = "구성-요소-및-사용-방법.md"
-      
-          asset_map = {}
-          for root, _, files in os.walk("assets"):
-            for f in files:
-              p = os.path.join(root, f).replace("\\", "/")
-              for norm in ("NFC", "NFD"):
-                asset_map[unicodedata.normalize(norm, p)] = p
-      
-          RAW_PREFIX = "https://raw.githubusercontent.com/RobomationLAB/User_Guide/"
-      
-          def url_to_local(url: str) -> str:
-            # raw URL이면 /assets/ 이후를 로컬 경로로
-            if url.startswith(RAW_PREFIX):
-              u = urlsplit(url)
-              path = u.path
-              idx = path.find("/assets/")
-              if idx != -1:
-                local = path[idx+1:]          # assets/...
-                local = unquote(local)        # %.. 디코딩 (URL에 들어있는 유니코드 그대로)
-                # NFC/NFD 둘 다 시도해서 실제 파일 경로로 교정
-                for norm in ("NFC", "NFD"):
-                  cand = unicodedata.normalize(norm, local)
-                  if cand in asset_map:
-                    return asset_map[cand]
-                return local
-            return url
-
-          def width_to_attr(width: str) -> str:
-            # width="50%" -> { width=50% }
-            w = width.strip().strip('"').strip("'")
-            m = re.fullmatch(r"(\d+(?:\.\d+)?)\s*%", w)
-            if m:
-              return f'{{ width={m.group(1)}% }}'
-            # px 등은 일단 무시(필요하면 변환 가능)
-            return ""
-      
-          s = open(SRC, "r", encoding="utf-8").read()
-      
-          # <img src="..." width="..."> 를 ![](...){ width=... } 로 변환
-          img_pat = re.compile(
-            r'<img\b([^>]*?)\bsrc="([^"]+)"([^>]*?)>',
-            re.IGNORECASE
-          )
-      
-          def repl_img(m):
-            before, src, after = m.group(1), m.group(2), m.group(3)
-            local = url_to_local(src)
-      
-            # width 추출
-            width_m = re.search(r'\bwidth="([^"]+)"', before + " " + after, re.IGNORECASE)
-            attr = width_to_attr(width_m.group(1)) if width_m else ""
-      
-            # alt는 없으면 빈 값
-            alt_m = re.search(r'\balt="([^"]+)"', before + " " + after, re.IGNORECASE)
-            alt = alt_m.group(1) if alt_m else ""
-      
-            return f'![{alt}]({local}){(" " + attr) if attr else ""}'
-      
-          s = img_pat.sub(repl_img, s)
-      
-          # <br>는 줄바꿈으로 (선택)
-          s = re.sub(r"<br\s*/?>", "\n", s, flags=re.IGNORECASE)
-      
-          open(OUT, "w", encoding="utf-8").write(s)
-      
-          # 디버그: 변환 후 이미지가 몇 개인지 출력
-          imgs = re.findall(r'!\[[^\]]*\]\([^)]+\)', s)
-          print("converted images:", len(imgs))
-          PY
-
-          # PDF 생성
-          pandoc 구성-요소-및-사용-방법.md \
-            --from markdown+link_attributes \
-            --resource-path=".:./assets" \
-            --pdf-engine=xelatex \
-            -V mainfont="Noto Sans CJK KR" \
-            -V sansfont="Noto Sans CJK KR" \
-            -V monofont="Noto Sans Mono CJK KR" \
-            -V CJKmainfont="Noto Sans CJK KR" \
-            -V CJKsansfont="Noto Sans CJK KR" \
-            -V CJKmonofont="Noto Sans Mono CJK KR" \
-            -H font-custom.tex \
-            -V geometry:margin=1.5cm \
-            -V linestretch=1.5 \
-            -V fontsize=11pt \
-            --highlight-style=tango \
-            -o 구성-요소-및-사용-방법.pdf
-
-          rm -f merged.md merged.html wkhtml.log
           
-
-          # 기본-블록.pdf에 포함될 Wiki 파일명(확장자 제외)
+          build_pdf "merged.md" "구성-요소-및-사용-방법.pdf"
+          rm -f merged.md
+          
+          # -----------------------------------------
+          # 기본-블록.pdf
           BLOCK_PAGES=("논리" "조건문" "반복" "연산" "문자열" "리스트" "색상" "소리" "제어" "변수" "함수" "기타")
-
-          # 파일 묶기
+          
           echo "# 기본 블록" > 기본-블록.md
           echo "" >> 기본-블록.md
           for page in "${BLOCK_PAGES[@]}"; do
@@ -237,49 +276,22 @@ jobs:
               echo "" >> 기본-블록.md
             fi
           done
-
-          # PDF 생성
-          pandoc 기본-블록.md \
-            --pdf-engine=xelatex \
-            -V mainfont="Noto Sans CJK KR" \
-            -V sansfont="Noto Sans CJK KR" \
-            -V monofont="Noto Sans Mono CJK KR" \
-            -V CJKmainfont="Noto Sans CJK KR" \
-            -V CJKsansfont="Noto Sans CJK KR" \
-            -V CJKmonofont="Noto Sans Mono CJK KR" \
-            -H font-custom.tex \
-            -V geometry:margin=1.5cm \
-            -V linestretch=1.5 \
-            -V fontsize=11pt \
-            --highlight-style=tango \
-            -o 기본-블록.pdf
-
-
-          # 나머지 Wiki 파일 개별 PDF 생성
+          
+          build_pdf "기본-블록.md" "기본-블록.pdf"
+          rm -f 기본-블록.md
+          
+          # -----------------------------------------
+          # 나머지 Wiki 파일 개별 PDF
           for file in *.md; do
             base=$(basename "$file" .md)
-
-            # 기본 블록 페이지거나, Home 이면 건너뜀
+          
             if [[ " ${USAGE_PAGES[*]} " =~ " ${base} " || " ${BLOCK_PAGES[*]} " =~ " ${base} " || "$base" = "Home" || "$base" = "_Sidebar" ]]; then
               continue
             fi
-
-            # PDF 생성
-            pandoc "$file" \
-              --pdf-engine=xelatex \
-              -V mainfont="Noto Sans CJK KR" \
-              -V sansfont="Noto Sans CJK KR" \
-              -V monofont="Noto Sans Mono CJK KR" \
-              -V CJKmainfont="Noto Sans CJK KR" \
-              -V CJKsansfont="Noto Sans CJK KR" \
-              -V CJKmonofont="Noto Sans Mono CJK KR" \
-              -H font-custom.tex \
-              -V geometry:margin=1.5cm \
-              -V linestretch=1.5 \
-              -V fontsize=11pt \
-              --highlight-style=tango \
-              -o "${base}.pdf" 
+          
+            build_pdf "$file" "${base}.pdf"
           done
+
 
       - name: Commit PDF to repository
         run: |
