@@ -129,45 +129,73 @@ jobs:
           SRC = "merged.md"
           OUT = "구성-요소-및-사용-방법.md"
       
-          s = open(SRC, "r", encoding="utf-8").read()
+          asset_map = {}
+          for root, _, files in os.walk("assets"):
+            for f in files:
+              p = os.path.join(root, f).replace("\\", "/")
+              for norm in ("NFC", "NFD"):
+                asset_map[unicodedata.normalize(norm, p)] = p
       
           RAW_PREFIX = "https://raw.githubusercontent.com/RobomationLAB/User_Guide/"
       
-          def convert_url(url: str) -> str:
-            if not url.startswith(RAW_PREFIX):
-              return url
+          def url_to_local(url: str) -> str:
+            # raw URL이면 /assets/ 이후를 로컬 경로로
+            if url.startswith(RAW_PREFIX):
+              u = urlsplit(url)
+              path = u.path
+              idx = path.find("/assets/")
+              if idx != -1:
+                local = path[idx+1:]          # assets/...
+                local = unquote(local)        # %.. 디코딩 (URL에 들어있는 유니코드 그대로)
+                # NFC/NFD 둘 다 시도해서 실제 파일 경로로 교정
+                for norm in ("NFC", "NFD"):
+                  cand = unicodedata.normalize(norm, local)
+                  if cand in asset_map:
+                    return asset_map[cand]
+                return local
+            return url
+
+          def width_to_attr(width: str) -> str:
+            # width="50%" -> { width=50% }
+            w = width.strip().strip('"').strip("'")
+            m = re.fullmatch(r"(\d+(?:\.\d+)?)\s*%", w)
+            if m:
+              return f'{{ width={m.group(1)}% }}'
+            # px 등은 일단 무시(필요하면 변환 가능)
+            return ""
       
-            u = urlsplit(url)
-            path = u.path  # /RobomationLAB/User_Guide/main/assets/....
-            # 안전하게 /assets/ 이후만 추출
-            idx = path.find("/assets/")
-            if idx == -1:
-              return url
+          s = open(SRC, "r", encoding="utf-8").read()
       
-            local = path[idx+1:]  # assets/...
-            local = unquote(local)  # %EC%.. -> 한글로 디코딩
-            return local
+          # <img src="..." width="..."> 를 ![](...){ width=... } 로 변환
+          img_pat = re.compile(
+            r'<img\b([^>]*?)\bsrc="([^"]+)"([^>]*?)>',
+            re.IGNORECASE
+          )
       
-          # <img ... src="..."> 안의 URL만 변환
           def repl_img(m):
-            before = m.group(1)
-            url = m.group(2)
-            after = m.group(3)
-            return f'{before}{convert_url(url)}{after}'
+            before, src, after = m.group(1), m.group(2), m.group(3)
+            local = url_to_local(src)
       
-          s = re.sub(r'(<img[^>]*\ssrc=")([^"]+)(")', repl_img, s)
+            # width 추출
+            width_m = re.search(r'\bwidth="([^"]+)"', before + " " + after, re.IGNORECASE)
+            attr = width_to_attr(width_m.group(1)) if width_m else ""
       
-          # 혹시 ![](...) 형태도 섞여 있으면 같이 변환
-          def repl_md(m):
-            alt = m.group(1)
-            url = m.group(2)
-            rest = m.group(3)
-            return f'![{alt}]({convert_url(url)}){rest}'
+            # alt는 없으면 빈 값
+            alt_m = re.search(r'\balt="([^"]+)"', before + " " + after, re.IGNORECASE)
+            alt = alt_m.group(1) if alt_m else ""
       
-          s = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)(\{[^}]*\})?', repl_md, s)
+            return f'![{alt}]({local}){(" " + attr) if attr else ""}'
+      
+          s = img_pat.sub(repl_img, s)
+      
+          # <br>는 줄바꿈으로 (선택)
+          s = re.sub(r"<br\s*/?>", "\n", s, flags=re.IGNORECASE)
       
           open(OUT, "w", encoding="utf-8").write(s)
-          print(f"Wrote {OUT}")
+      
+          # 디버그: 변환 후 이미지가 몇 개인지 출력
+          imgs = re.findall(r'!\[[^\]]*\]\([^)]+\)', s)
+          print("converted images:", len(imgs))
           PY
 
           # PDF 생성
