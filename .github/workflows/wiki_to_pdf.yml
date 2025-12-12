@@ -53,7 +53,8 @@ jobs:
             texlive-latex-extra \
             texlive-lang-chinese \
             lmodern \
-            fonts-noto-cjk
+            fonts-noto-cjk \
+            librsvg2-bin
 
       - name: Install wkhtmltopdf 0.12.6.1-3 (patched)
         run: |
@@ -106,30 +107,85 @@ jobs:
           USAGE_PAGES=("상단-메뉴" "에디터" "미리보기")
 
           ## 파일 묶기
-          echo "# 구성 요소 및 사용 방법" > 구성-요소-및-사용-방법.md
-          echo "" >> 구성-요소-및-사용-방법.md
+          echo "# 구성 요소 및 사용 방법" > merged.md
+          echo "" >> merged.md
           for page in "${USAGE_PAGES[@]}"; do
             file="${page}.md"
             if [ -f "$file" ]; then
-              echo "# $page" >> 구성-요소-및-사용-방법.md
-              echo "" >> 구성-요소-및-사용-방법.md
-              cat "$file" >> 구성-요소-및-사용-방법.md
-              echo "" >> 구성-요소-및-사용-방법.md
-              echo "---" >> 구성-요소-및-사용-방법.md
-              echo "" >> 구성-요소-및-사용-방법.md
+              echo "# $page" >> merged.md
+              echo "" >> merged.md
+              cat "$file" >> merged.md
+              echo "" >> merged.md
+              echo "---" >> merged.md
+              echo "" >> merged.md
             fi
           done
 
+          ## raw 링크를 로컬 assets 경로로 변환 (PDF 변환만을 위해)
+          python3 - <<'PY'
+          import re
+          from urllib.parse import urlsplit, unquote
+      
+          SRC = "merged.md"
+          OUT = "merged_pdf.md"
+      
+          s = open(SRC, "r", encoding="utf-8").read()
+      
+          RAW_PREFIX = "https://raw.githubusercontent.com/RobomationLAB/User_Guide/"
+      
+          def convert_url(url: str) -> str:
+            if not url.startswith(RAW_PREFIX):
+              return url
+      
+            u = urlsplit(url)
+            path = u.path  # /RobomationLAB/User_Guide/main/assets/....
+            # 안전하게 /assets/ 이후만 추출
+            idx = path.find("/assets/")
+            if idx == -1:
+              return url
+      
+            local = path[idx+1:]  # assets/...
+            local = unquote(local)  # %EC%.. -> 한글로 디코딩
+            return local
+      
+          # <img ... src="..."> 안의 URL만 변환
+          def repl_img(m):
+            before = m.group(1)
+            url = m.group(2)
+            after = m.group(3)
+            return f'{before}{convert_url(url)}{after}'
+      
+          s = re.sub(r'(<img[^>]*\ssrc=")([^"]+)(")', repl_img, s)
+      
+          # 혹시 ![](...) 형태도 섞여 있으면 같이 변환
+          def repl_md(m):
+            alt = m.group(1)
+            url = m.group(2)
+            rest = m.group(3)
+            return f'![{alt}]({convert_url(url)}){rest}'
+      
+          s = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)(\{[^}]*\})?', repl_md, s)
+      
+          open(OUT, "w", encoding="utf-8").write(s)
+          print(f"Wrote {OUT}")
+          PY
+
           # PDF 생성
-          pandoc 구성-요소-및-사용-방법.md \
-            --metadata title="구성-요소-및-사용-방법.md" \
-            --metadata pagetitle="" \
+          pandoc merged.md \
             --from markdown+raw_html \
-            --highlight-style=tango \
+            --pdf-engine=xelatex \
+            -V mainfont="Noto Sans CJK KR" \
+            -V sansfont="Noto Sans CJK KR" \
+            -V monofont="Noto Sans Mono CJK KR" \
+            -V CJKmainfont="Noto Sans CJK KR" \
+            -V CJKsansfont="Noto Sans CJK KR" \
+            -V CJKmonofont="Noto Sans Mono CJK KR" \
             -H font-custom.tex \
-            -c ../styles/pdf-style.css \
-            -o 구성-요소-및-사용-방법.html
-          wkhtmltopdf --enable-local-file-access 구성-요소-및-사용-방법.html 구성-요소-및-사용-방법.pdf
+            -V geometry:margin=1.5cm \
+            -V linestretch=1.5 \
+            -V fontsize=11pt \
+            --highlight-style=tango \
+            -o merged.pdf
           
 
           # 기본-블록.pdf에 포함될 Wiki 파일명(확장자 제외)
