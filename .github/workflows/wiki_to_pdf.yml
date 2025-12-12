@@ -123,7 +123,7 @@ jobs:
 
           ## raw 링크를 로컬 assets 경로로 변환 (PDF 변환만을 위해)
           python3 - <<'PY'
-          import re
+          import re, os, unicodedata
           from urllib.parse import urlsplit, unquote
       
           SRC = "merged.md"
