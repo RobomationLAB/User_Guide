@@ -200,7 +200,8 @@ jobs:
 
           # PDF 생성
           pandoc 구성-요소-및-사용-방법.md \
-            --from markdown+raw_html \
+            --from markdown \
+            --resource-path=".:./assets" \
             --pdf-engine=xelatex \
             -V mainfont="Noto Sans CJK KR" \
             -V sansfont="Noto Sans CJK KR" \
