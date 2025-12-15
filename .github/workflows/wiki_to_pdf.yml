@@ -133,6 +133,7 @@ jobs:
             python3 - <<'PY'
           import re, os, unicodedata, hashlib, time
           from urllib.parse import urlsplit, unquote
+          import urllib.request
           
           SRC = os.environ["SRC"]
           OUT = os.environ["OUT"]
