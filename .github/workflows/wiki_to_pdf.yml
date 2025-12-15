@@ -217,7 +217,7 @@ jobs:
                 if idx != -1:
                   local = unquote(u.path[idx+1:])  # assets/...
                   return normalize_path(local)
-            if not (url.startswith("http://" or url.startswith("https://")):
+            if not (url.startswith("http://") or url.startswith("https://")):
               return normalize_path(url)
             return download_remote(url)
           
