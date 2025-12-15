@@ -242,7 +242,7 @@ jobs:
             local OUT_PDF="$2"
             local TMP_MD=".__tmp_pdf__.md"
           
-            preprocess_md "$IN_MD" "$TMP_MD"
+            SRC="$IN_MD" OUT="$TMP_MD" preprocess_md "$IN_MD" "$TMP_MD"
           
             pandoc "$TMP_MD" \
               --from markdown+raw_attribute \
