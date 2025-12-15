@@ -168,7 +168,7 @@ jobs:
             frac = float(m.group(1)) / 100.0
             if frac <= 0:
               return ""
-            return f"width={frac:.4f}\\\\linewidth"
+            return f"width={frac:.4f}\\linewidth"
 
           # LaTeX는 SVG를 직접 못 넣는 경우가 많아서,
           # assets/.../*.svg -> assets/.../*.svg.pdf 로 변환 후 그걸 쓰도록 함.
@@ -207,12 +207,10 @@ jobs:
             width_m = re.search(r'\bwidth="([^"]+)"', attrs, re.IGNORECASE)
             opt = width_to_latex_opt(width_m.group(1)) if width_m else ""
 
-            local_safe = local.replace("{", "\\{").replace("}", "\\}")
-          
             if opt:
-              body = rf'\includegraphics[{opt}]{{{local_safe}}}'
+              body = f"\\includegraphics[{opt}]{{{local}}}"
             else:
-              body = rf'\includegraphics{{{local_safe}}}'
+              body = f"\\includegraphics{{{local}}}"
           
             return (
               f"{indent}```{{=latex}}\n"
