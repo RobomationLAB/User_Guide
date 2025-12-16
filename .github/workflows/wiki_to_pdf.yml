@@ -412,6 +412,7 @@ jobs:
         
           mkdir -p PDF
           mv wiki/*.pdf PDF/
+          
           rm -rf wiki/
         
           git config user.name "${COMMITTER_NAME}"
@@ -420,6 +421,7 @@ jobs:
           git fetch origin
           git reset --hard origin/$BRANCH
           git add PDF/*.pdf
+          git add MD/*.md
           
           if ! git diff --staged --quiet; then
             git commit -m "Update Wiki to PDFs"
