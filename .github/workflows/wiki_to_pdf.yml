@@ -354,22 +354,21 @@ jobs:
           # 구성-요소-및-사용-방법.pdf
           USAGE_PAGES=("상단-메뉴" "에디터" "미리보기")
           
-          echo "# 구성 요소 및 사용 방법" > merged.md
-          echo "" >> merged.md
+          echo "# 구성 요소 및 사용 방법" > 구성-요소-및-사용-방법.md
+          echo "" >> 구성-요소-및-사용-방법.md
           for page in "${USAGE_PAGES[@]}"; do
             file="${page}.md"
             if [ -f "$file" ]; then
-              echo "# $page" >> merged.md
-              echo "" >> merged.md
-              cat "$file" >> merged.md
-              echo "" >> merged.md
-              echo "---" >> merged.md
-              echo "" >> merged.md
+              echo "# $page" >> 구성-요소-및-사용-방법.md
+              echo "" >> 구성-요소-및-사용-방법.md
+              cat "$file" >> 구성-요소-및-사용-방법.md
+              echo "" >> 구성-요소-및-사용-방법.md
+              echo "---" >> 구성-요소-및-사용-방법.md
+              echo "" >> 구성-요소-및-사용-방법.md
             fi
           done
           
-          build_pdf "merged.md" "구성-요소-및-사용-방법.pdf"
-          rm -f merged.md
+          build_pdf "구성-요소-및-사용-방법.md" "구성-요소-및-사용-방법.pdf"
           
           # -----------------------------------------
           # 기본-블록.pdf
@@ -390,7 +389,6 @@ jobs:
           done
           
           build_pdf "기본-블록.md" "기본-블록.pdf"
-          rm -f 기본-블록.md
           
           # -----------------------------------------
           # 나머지 Wiki 파일 개별 PDF
@@ -408,6 +406,9 @@ jobs:
       - name: Commit PDF to repository
         run: |
           cd ${{ github.workspace }}
+
+          mkdir -p MD
+          mv wiki/*.md MD/
         
           mkdir -p PDF
           mv wiki/*.pdf PDF/
