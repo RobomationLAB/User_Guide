@@ -30,6 +30,8 @@ jobs:
         run: |
           git clone https://${{ env.GH_TOKEN }}@github.com/${{ env.REPO_OWNER }}/${{ env.WIKI_REPO_NAME }}.git wiki
           cd wiki
+          rm -r Home.md _Sidebar.md
+          
           git config user.name "${{ env.COMMITTER_NAME }}"
           git config user.email "${{ env.COMMITTER_EMAIL }}"
 
