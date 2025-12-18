@@ -315,8 +315,8 @@ jobs:
           # (4) 존재 체크: 하나라도 없으면 바로 실패시켜 원인을 숨기지 않게 함
           paths = re.findall(r'!\[[^\]]*\]\(([^)]+)\)', s)
           missing = [p for p in paths if p.startswith("assets/") and not os.path.exists(p)]
-          print("converted images:", len(paths))
-          print("missing assets:", len(missing))
+          # print("converted images:", len(paths))
+          # print("missing assets:", len(missing))
           if missing:
             print("sample missing:", missing[:10])
             raise SystemExit(2)
