@@ -351,6 +351,26 @@ jobs:
             rm -f "$TMP_MD"
           }
           export -f build_pdf
+
+          # -----------------------------------------
+          # RobomationLAB-코딩-가이드.pdf
+          GUIDE_PAGES=("코딩-가이드" "코딩-규칙" "커스텀-함수")
+          
+          echo "# RobomationLAB 코딩 가이드" > RobomationLAB-코딩-가이드.md
+          echo "" >> RobomationLAB-코딩-가이드.md
+          for page in "${GUIDE_PAGES[@]}"; do
+            file="${page}.md"
+            if [ -f "$file" ]; then
+              echo "# $page" >> RobomationLAB-코딩-가이드.md
+              echo "" >> RobomationLAB-코딩-가이드.md
+              cat "$file" >> RobomationLAB-코딩-가이드.md
+              echo "" >> RobomationLAB-코딩-가이드.md
+              echo "---" >> RobomationLAB-코딩-가이드.md
+              echo "" >> RobomationLAB-코딩-가이드.md
+            fi
+          done
+          
+          build_pdf "RobomationLAB-코딩-가이드.md" "RobomationLAB-코딩-가이드.pdf"
           
           # -----------------------------------------
           # 구성-요소-및-사용-방법.pdf
@@ -397,7 +417,7 @@ jobs:
           for file in *.md; do
             base=$(basename "$file" .md)
           
-            if [[ " ${USAGE_PAGES[*]} " =~ " ${base} " || " ${BLOCK_PAGES[*]} " =~ " ${base} " || "$base" = "Home" || "$base" = "_Sidebar" ]]; then
+            if [[ " ${GUIDE_PAGES[*]} " =~ " ${base} " || " ${USAGE_PAGES[*]} " =~ " ${base} " || " ${BLOCK_PAGES[*]} " =~ " ${base} " || "$base" = "Home" || "$base" = "_Sidebar" ]]; then
               continue
             fi
           
