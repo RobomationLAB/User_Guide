@@ -1,0 +1,12 @@
+{
+  "category": "common",
+  "module": "control",
+  "order": [
+    "wait_sec",
+    "wait_input",
+    "wait_1msec",
+    "key_pressed",
+    "log",
+    "scope"
+  ]
+}

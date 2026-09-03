@@ -1,0 +1,10 @@
+{
+  "category": "common",
+  "module": "others",
+  "order": [
+    "comment",
+    "long_comment",
+    "link",
+    "exit"
+  ]
+}

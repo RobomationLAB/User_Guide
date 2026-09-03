@@ -1,0 +1,20 @@
+{
+  "category": "AI",
+  "module": "ObjectDetection",
+  "order": [
+    "device",
+    "load_model",
+    "max_objects",
+    "confidence_threshold",
+    "detect_once",
+    "detect_continuous",
+    "display",
+    "object_data",
+    "object_square",
+    "object_distance",
+    "object_confidence",
+    "model_state",
+    "detected",
+    "object_detected"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "category": "CheeseStick",
+  "module": "HAT010",
+  "order": [
+    "start",
+    "set_one",
+    "draw_shape",
+    "draw_number",
+    "draw_pattern",
+    "shift",
+    "turn_off_one",
+    "turn_off_all",
+    "set_brightness",
+    "change_brightness",
+    "button_input",
+    "button_click"
+  ]
+}

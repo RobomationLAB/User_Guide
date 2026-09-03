@@ -1,0 +1,9 @@
+{
+  "category": "CheeseStick",
+  "module": "HAT022",
+  "order": [
+    "start",
+    "key_input",
+    "key_pressed"
+  ]
+}

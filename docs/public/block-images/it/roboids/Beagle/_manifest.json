@@ -1,0 +1,31 @@
+{
+  "category": "roboids",
+  "module": "Beagle",
+  "order": [
+    "set_wheel_speed",
+    "move_distance",
+    "move_time",
+    "turn_degree",
+    "change_speed",
+    "stop",
+    "wheel_moving",
+    "sound_buzz",
+    "sound_note",
+    "sound_clip",
+    "sound_off",
+    "sound_playing",
+    "wheel_speed",
+    "encoder",
+    "gyroscope",
+    "accelerometer",
+    "magnetometer",
+    "temperature",
+    "signal_strength",
+    "battery",
+    "state_change",
+    "lidar_power",
+    "lidar_value",
+    "lidar_directions",
+    "lidar_state"
+  ]
+}

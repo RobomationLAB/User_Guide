@@ -1,0 +1,10 @@
+{
+  "category": "CheeseStick",
+  "module": "PID26",
+  "order": [
+    "start",
+    "temperature",
+    "humidity",
+    "pressure"
+  ]
+}

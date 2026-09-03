@@ -1,0 +1,10 @@
+{
+  "category": "AI",
+  "module": "ASR",
+  "order": [
+    "lang",
+    "listen",
+    "result",
+    "state"
+  ]
+}

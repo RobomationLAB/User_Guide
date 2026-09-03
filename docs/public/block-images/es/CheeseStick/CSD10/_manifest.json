@@ -1,0 +1,8 @@
+{
+  "category": "CheeseStick",
+  "module": "CSD10",
+  "order": [
+    "set_input_port",
+    "get_input"
+  ]
+}

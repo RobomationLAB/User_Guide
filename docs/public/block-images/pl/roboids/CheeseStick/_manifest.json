@@ -1,0 +1,24 @@
+{
+  "category": "roboids",
+  "module": "CheeseStick",
+  "order": [
+    "set_input_mode",
+    "set_input_range",
+    "set_input_range_median",
+    "get_input",
+    "set_pulse_input_mode",
+    "get_pulse_input",
+    "set_digital_output",
+    "set_pwm_output",
+    "change_pwm_output",
+    "sound_buzz",
+    "sound_note",
+    "sound_clip",
+    "sound_off",
+    "acceleration",
+    "temperature",
+    "signal_strength",
+    "battery",
+    "state_change"
+  ]
+}

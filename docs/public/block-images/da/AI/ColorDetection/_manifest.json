@@ -1,0 +1,15 @@
+{
+  "category": "AI",
+  "module": "ColorDetection",
+  "order": [
+    "device",
+    "register_color",
+    "delete_color",
+    "area_condition",
+    "detect_once",
+    "detect_continuous",
+    "display",
+    "color_data",
+    "color_detected"
+  ]
+}

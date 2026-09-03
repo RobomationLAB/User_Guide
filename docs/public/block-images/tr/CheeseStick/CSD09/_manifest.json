@@ -1,0 +1,21 @@
+{
+  "category": "CheeseStick",
+  "module": "CSD09",
+  "order": [
+    "start_servo_motor",
+    "set_servo_motor",
+    "change_servo_motor",
+    "stop_servo_motor",
+    "start_DC_motor",
+    "set_DC_motor",
+    "change_DC_motor",
+    "stop_DC_motor",
+    "start_step_motor",
+    "set_step_motor_mode",
+    "set_step_motor_speed",
+    "rotate_step_motor",
+    "change_step_motor_speed",
+    "stop_step_motor",
+    "step_motor_steps"
+  ]
+}

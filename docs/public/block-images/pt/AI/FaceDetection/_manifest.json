@@ -1,0 +1,16 @@
+{
+  "category": "AI",
+  "module": "FaceDetection",
+  "order": [
+    "device",
+    "load_model",
+    "detect_once",
+    "detect_continuous",
+    "display",
+    "face_data",
+    "face_square",
+    "distance",
+    "model_state",
+    "detected"
+  ]
+}

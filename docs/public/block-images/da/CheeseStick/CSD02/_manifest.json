@@ -1,0 +1,11 @@
+{
+  "category": "CheeseStick",
+  "module": "CSD02",
+  "order": [
+    "start",
+    "set_color",
+    "set_color_with_block",
+    "change_by_rgb",
+    "turn_off"
+  ]
+}

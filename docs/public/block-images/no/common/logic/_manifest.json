@@ -1,0 +1,13 @@
+{
+  "category": "common",
+  "module": "logic",
+  "order": [
+    "controls_if",
+    "logic_compare",
+    "logic_operation",
+    "logic_negate",
+    "logic_boolean",
+    "logic_null",
+    "logic_ternary"
+  ]
+}

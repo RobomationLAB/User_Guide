@@ -1,0 +1,16 @@
+{
+  "category": "AI",
+  "module": "SelfDriving",
+  "order": [
+    "device",
+    "set_lane_color",
+    "detect_once",
+    "detect_continuous",
+    "display",
+    "lane_data",
+    "color_data",
+    "color_to_color",
+    "lane_detected",
+    "color_detected"
+  ]
+}

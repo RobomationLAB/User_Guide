@@ -1,0 +1,14 @@
+{
+  "category": "AI",
+  "module": "ArucoMarker",
+  "order": [
+    "device",
+    "max_count",
+    "detect_once",
+    "detect_continuous",
+    "display",
+    "marker_data",
+    "marker_to_marker",
+    "marker_detected"
+  ]
+}

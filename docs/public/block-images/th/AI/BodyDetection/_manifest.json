@@ -1,0 +1,15 @@
+{
+  "category": "AI",
+  "module": "BodyDetection",
+  "order": [
+    "device",
+    "load_model",
+    "detect_once",
+    "detect_continuous",
+    "display",
+    "body_data",
+    "body_distance",
+    "model_state",
+    "detected"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "category": "CheeseStick",
+  "module": "NeoPixel",
+  "order": [
+    "start",
+    "mode",
+    "set_one_color",
+    "set_one_color_with_block",
+    "change_one_by_rgb",
+    "turn_off_one",
+    "set_range_pattern",
+    "set_range_color",
+    "set_range_color_with_block",
+    "change_range_by_rgb",
+    "turn_off_range",
+    "set_range_increment_color",
+    "set_range_increment_color_with_block",
+    "change_range_increment_by_rgb",
+    "turn_off_range_increment",
+    "shift",
+    "set_brightness",
+    "change_brightness"
+  ]
+}

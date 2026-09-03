@@ -1,0 +1,20 @@
+{
+  "category": "AI",
+  "module": "HandDetection",
+  "order": [
+    "device",
+    "load_model",
+    "max_hands",
+    "detect_once",
+    "detect_continuous",
+    "display",
+    "hand_data",
+    "joint_data",
+    "hand_square",
+    "hand_to_hand_distance",
+    "hand_to_joint_distance",
+    "joint_to_joint_distance",
+    "model_state",
+    "detected"
+  ]
+}

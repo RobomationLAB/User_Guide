@@ -1,0 +1,9 @@
+{
+  "category": "common",
+  "module": "audio",
+  "order": [
+    "play_sound",
+    "set_tts",
+    "speak"
+  ]
+}

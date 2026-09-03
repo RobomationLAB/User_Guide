@@ -1,0 +1,10 @@
+{
+  "category": "CheeseStick",
+  "module": "PID13",
+  "order": [
+    "start",
+    "joystick",
+    "button_input",
+    "button_click"
+  ]
+}

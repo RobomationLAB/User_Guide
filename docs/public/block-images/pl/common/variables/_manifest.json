@@ -1,0 +1,9 @@
+{
+  "category": "common",
+  "module": "variables",
+  "order": [
+    "variables_set",
+    "math_change",
+    "variables_get"
+  ]
+}

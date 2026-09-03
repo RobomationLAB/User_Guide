@@ -1,0 +1,21 @@
+{
+  "category": "AI",
+  "module": "FaceExpression",
+  "order": [
+    "device",
+    "load_model",
+    "detect_once",
+    "detect_continuous",
+    "display",
+    "age",
+    "gender",
+    "expression",
+    "gender_detected",
+    "gender_check",
+    "gender_confidence",
+    "expression_detected",
+    "expression_check",
+    "expression_confidence",
+    "model_state"
+  ]
+}
