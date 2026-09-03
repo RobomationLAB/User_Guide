@@ -1,6 +1,6 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
-layout: home
+layout: page
 
 hero:
   name: "RobomationLAB 사용 가이드"
@@ -23,3 +23,29 @@ features:
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
+<script setup>
+import { onMounted } from 'vue'
+
+const KEYS = ['ko','en','es','fr','de','it','pt','ja','zh-hans','zh-hant',
+              'nl','ru','sv','pl','tr','id','vi','th','da','fi','no']
+const ALIAS = { zh: 'zh-hans', 'zh-cn': 'zh-hans', 'zh-tw': 'zh-hant',
+                'zh-hk': 'zh-hant', nb: 'no', nn: 'no', in: 'id' }
+
+function pick() {
+  // 1순위: 브라우저 언어
+  for (const tag of navigator.languages || []) {
+    const t = tag.toLowerCase()
+    for (const c of [t, t.split('-').slice(0,2).join('-'), t.split('-')[0]]) {
+      if (ALIAS[c]) return ALIAS[c]
+      if (KEYS.includes(c)) return c
+    }
+  }
+
+  // 2순위: 기본 언어 'ko'
+  return 'ko'
+}
+
+onMounted(() => { location.replace(`/${pick()}/`) })
+</script>
+
+<div style="padding:4rem;text-align:center">이동 중…</div>
