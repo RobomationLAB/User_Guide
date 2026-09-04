@@ -27,6 +27,10 @@ const LOCALES = [
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  // favicon. base 설정이 없고 루트(docs.robomationlab.com)로 배포되므로 절대경로.
+  head: [
+    ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
+  ],
   title: "RobomationLAB 사용 가이드",
   description: "RobomationLAB은 AI 로보틱스 SW 교육에 최적화된 플랫폼으로,초등/중학생 대상 로봇 코딩 교육을 위한 Chrome 웹 브라우저 기반의 통합 저작환경을 제공합니다.",
   locales: Object.fromEntries(
@@ -34,6 +38,8 @@ export default defineConfig({
   ),
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    // 헤더 좌측: 아이콘 + 사이트 제목 ㅍ시
+    logo: { src: '/logo.png', alt: 'RobomationLAB' },
     nav: [
       { text: 'Home', link: '/' },
     ],

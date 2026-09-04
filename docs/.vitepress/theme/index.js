@@ -1,5 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import BlockImage from './components/BlockImage.vue'
+import './custom.css'
 
 /** @type {import('vitepress').Theme} */
 export default {
