@@ -1,0 +1,10 @@
+{
+  "category": "common",
+  "module": "color",
+  "order": [
+    "color_picker",
+    "color_slider",
+    "color_rgb",
+    "color_random"
+  ]
+}

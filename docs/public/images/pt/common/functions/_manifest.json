@@ -1,0 +1,13 @@
+{
+  "category": "common",
+  "module": "functions",
+  "order": [
+    "setup",
+    "loop",
+    "procedures_defnoreturn",
+    "procedures_defreturn",
+    "procedures_ifreturn",
+    "procedures_callnoreturn",
+    "procedures_callreturn"
+  ]
+}
