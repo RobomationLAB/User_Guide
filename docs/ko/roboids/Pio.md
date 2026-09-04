@@ -20,7 +20,6 @@ pio_1 = Pio(1)
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 바퀴 속도 설정하기 {#set_wheel_speed}
 
@@ -41,8 +40,6 @@ pio = Pio(0)
 
 pio.set_wheel_speed('both', 50)
 ```
-
----
 
 ## 거리 이동하기 {#move_distance}
 
@@ -67,8 +64,6 @@ pio = Pio(0)
 
 pio.move_distance(50, 'cm', wait=True)
 ```
-
----
 
 ## 시간 이동하기 {#move_time}
 
@@ -95,8 +90,6 @@ pio.move_time(5, wait=True)
 pio.move_time(5, wait=False)
 ```
 
----
-
 ## 제자리 돌기 {#turn_degree}
 
 제자리에서 회전할 방향과 각도를 설정합니다.  
@@ -122,8 +115,6 @@ pio.turn_degree('left', 90, wait=True)
 pio.turn_degree('right', 90, wait=True)
 ```
 
----
-
 ## 바퀴 속도 변경하기 {#change_speed}
 
 삐오봇의 바퀴 속도를 변경합니다.  
@@ -146,8 +137,6 @@ pio = Pio(0)
 pio.change_wheel_speed('both', 50)
 ```
 
----
-
 ## 터보 모드 켜기 / 끄기 {#turbo}
 
 삐오봇의 터보 모드를 켜거나 끕니다.
@@ -167,8 +156,6 @@ pio = Pio(0)
 pio.turbo(True)
 ```
 
----
-
 ## 정지하기 {#stop}
 
 삐오봇의 이동을 멈춥니다.  
@@ -187,8 +174,6 @@ pio = Pio(0)
 pio.stop()
 ```
 
----
-
 ## 바퀴가 움직이는 중인가? {#wheel_moving}
 
 바퀴가 움직이는 중이면 true, 멈춰있으면 false를 반환한다.
@@ -205,8 +190,6 @@ pio = Pio(0)
 
 pio.wheel_moving()
 ```
-
----
 
 ## 말판 한 칸 이동하기 {#grid_move}
 
@@ -226,8 +209,6 @@ pio = Pio(0)
 
 pio.grid_move('forward')
 ```
-
----
 
 ## 말판에서 한번 돌기 {#grid_turn}
 
@@ -251,8 +232,6 @@ pio.grid_turn('left')
 pio.grid_turn('right')
 ```
 
----
-
 ## 목 회전속도 설정하기 {#set_neck_speed}
 
 목의 회전 속도를 설정합니다. 목 속도의 범위는 1 ~ 6 입니다.
@@ -271,8 +250,6 @@ pio = Pio(0)
 
 pio.set_neck_speed(4)
 ```
-
----
 
 ## 목 각도 설정하기 {#set_neck_angle}
 
@@ -294,8 +271,6 @@ pio = Pio(0)
 pio.set_neck_angle(15, wait=True)
 ```
 
----
-
 ## 목이 움직이는 중인가? {#neck_moving}
 
 목이 움직이는 중이면 true, 멈춰있으면 false를 반환한다.
@@ -312,8 +287,6 @@ pio = Pio(0)
 
 pio.neck_moving()
 ```
-
----
 
 ## 눈 LED 색상 설정하기 {#set_eye_color}
 
@@ -337,8 +310,6 @@ pio = Pio(0)
 pio.set_eye_color('both', 'red')
 ```
 
----
-
 ## 눈 LED 색 색상 카테고리 블록으로 설정하기 {#set_eye_color_with_block}
 
 색상 카테고리에 있는 블록들로 삐오봇의 눈 LED 색을 설정합니다.  
@@ -359,8 +330,6 @@ pio = Pio(0)
 
 pio.set_eye_color('both', *Utils.color('red'))
 ```
-
----
 
 ## 눈 LED 색 지정 RGB만큼 변경하기 {#change_by_rgb}
 
@@ -385,8 +354,6 @@ pio = Pio(0)
 pio.change_eye_color('both', 10, 0, 0)
 ```
 
----
-
 ## 눈 LED 패턴 설정하기 {#set_eye_pattern}
 
 눈의 패턴을 설정하고, 패턴이 시작될 때 각 눈의 색상을 지정합니다.
@@ -408,8 +375,6 @@ pio = Pio(0)
 pio.set_eye_pattern('dimming', 'green', 'red')
 ```
 
----
-
 ## 눈 LED 끄기 {#turn_off}
 
 눈의 색을 없앱니다.
@@ -428,8 +393,6 @@ pio = Pio(0)
 
 pio.turn_off('both')
 ```
-
----
 
 ## 버저음 설정하기 {#sound_buzz}
 
@@ -452,8 +415,6 @@ pio = Pio(0)
 pio.sound_buzz(440)
 ```
 
----
-
 ## 음계 연주하기 {#sound_note}
 
 삐오봇이 지정된 음계를 재생합니다.
@@ -473,8 +434,6 @@ pio = Pio(0)
 
 pio.sound_note('D', 5)
 ```
-
----
 
 ## 소리 재생하기 {#sound_clip}
 
@@ -497,8 +456,6 @@ pio = Pio(0)
 pio.sound_clip('siren', wait=True)
 ```
 
----
-
 ## 멜로디 재생하기 {#sound_melody}
 
 삐오봇이 특정 멜로디를 재생합니다.  
@@ -520,8 +477,6 @@ pio = Pio(0)
 pio.sound_melody('happy', wait=True)
 ```
 
----
-
 ## 소리 끄기 {#sound_off}
 
 삐오봇의 소리를 끕니다.
@@ -539,8 +494,6 @@ pio = Pio(0)
 pio.sound_off()
 ```
 
----
-
 ## 소리가 재생 중인가? {#sound_playing}
 
 소리가 재생 중이면 true, 재생 중이 아니면 false를 반환합니다.
@@ -557,8 +510,6 @@ pio = Pio(0)
 
 pio.sound_playing()
 ```
-
----
 
 ## 바퀴 속도 값 {#wheel_speed}
 
@@ -579,8 +530,6 @@ pio = Pio(0)
 pio.wheel_speed('left')
 ```
 
----
-
 ## 신호 세기 값 {#signal_strength}
 
 신호 세기
@@ -598,8 +547,6 @@ pio = Pio(0)
 pio.signal_strength()
 ```
 
----
-
 ## 배터리 전압 {#battery}
 
 배터리 전압
@@ -616,8 +563,6 @@ pio = Pio(0)
 
 pio.battery()
 ```
-
----
 
 ## 키패드 버튼 {#keypad}
 

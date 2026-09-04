@@ -20,7 +20,6 @@ color_detection_1 = ColorDetection(1)
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 카메라 장치 선택하기 {#device}
 
@@ -40,8 +39,6 @@ color_detection = ColorDetection(0)
 
 color_detection.device('')
 ```
-
----
 
 ## 색 등록하기 {#register_color}
 
@@ -63,8 +60,6 @@ color_detection = ColorDetection(0)
 color_detection.register_color('red', wait=True)
 ```
 
----
-
 ## 색 삭제하기 {#delete_color}
 
 색깔 찾기를 통해 인식할 색깔에서 해당 색깔을 삭제합니다.
@@ -85,8 +80,6 @@ color_detection = ColorDetection(0)
 color_detection.delete_color('blue', wait=True)
 ```
 
----
-
 ## 면적 조건 설정하기 {#area_condition}
 
 인식할 색깔 영역 넓이의 최소 크기를 정합니다. 영역의 넓이가 이 이상인 경우에만 화면에 표시됩니다.
@@ -106,8 +99,6 @@ color_detection = ColorDetection(0)
 color_detection.area_condition(50)
 ```
 
----
-
 ## 한 번 인식하기 {#detect_once}
 
 인식 가능한 색깔 중, 현재 화면에 있는 색깔들을 찾아 딱 한번 영역을 표시합니다.
@@ -124,8 +115,6 @@ color_detection = ColorDetection(0)
 
 color_detection.detect_once()
 ```
-
----
 
 ## 연속 인식 시작 / 중지 {#detect_continuous}
 
@@ -149,8 +138,6 @@ color_detection.detect_continuous()
 color_detection.stop()
 ```
 
----
-
 ## 인식 화면 표시하기 {#display}
 
 카메라 화면에 색깔 찾기 결과를 표시할지 말지를 결정합니다.
@@ -170,8 +157,6 @@ color_detection = ColorDetection(0)
 color_detection.display(True)
 color_detection.display(False)
 ```
-
----
 
 ## 색 정보 {#color_data}
 
@@ -194,8 +179,6 @@ color_detection.color('red', 'x')
 color_detection.color('green', 'y')
 color_detection.color('blue', 'area')
 ```
-
----
 
 ## 특정 색 감지 여부 {#color_detected}
 

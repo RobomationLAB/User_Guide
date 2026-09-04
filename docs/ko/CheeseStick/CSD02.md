@@ -19,7 +19,6 @@ csd02 = cheesestick.CSD02()
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## RGB LED 시작하기 {#start}
 
@@ -39,8 +38,6 @@ csd02 = cheesestick.CSD02()
 
 csd02.start()
 ```
-
----
 
 ## 색 설정하기 {#set_color}
 
@@ -63,8 +60,6 @@ csd02 = cheesestick.CSD02()
 csd02.set_color('orange')
 ```
 
----
-
 ## 색상 카테고리 블록으로 색 설정하기 {#set_color_with_block}
 
 색상 카테고리 블록 (예: `[R, G, B]` 배열) 을 입력으로 받아 CSD02 의 LED 색을 설정합니다.
@@ -84,8 +79,6 @@ csd02 = cheesestick.CSD02()
 
 csd02.set_color(*Utils.color('yellow'))
 ```
-
----
 
 ## RGB 만큼 색 바꾸기 {#change_by_rgb}
 
@@ -108,8 +101,6 @@ csd02 = cheesestick.CSD02()
 
 csd02.change_color(10, 0, 0)
 ```
-
----
 
 ## LED 끄기 {#turn_off}
 

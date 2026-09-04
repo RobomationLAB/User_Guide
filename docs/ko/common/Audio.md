@@ -6,7 +6,6 @@ title: 소리
 
 소리 블록을 활용하면 다양한 효과음과 음성을 재생할 수 있습니다.
 
-<br>
 
 ## 소리 재생하기 {#play_sound}
 
@@ -25,15 +24,13 @@ title: 소리
 
 ### Python
 ```python
-Utils.play_sound('', 80, True)
-Utils.play_sound('', 80, False)
+Utils.play_sound('', 100, True)
+Utils.play_sound('', 100, False)
 ```
-
----
 
 ## 언어 음성 정하기 {#set_tts}
 
-소리를 재생할 **언어**와 **음성**을 설정합니다.  
+**TTS**를 재생할 **언어**와 **목소리**를 설정합니다.  
 다양한 언어 및 목소리를 선택하여 더욱 자연스러운 음성을 출력할 수 있습니다.
 
 <BlockImage module="common/audio" id="set_tts" />
@@ -43,14 +40,12 @@ Utils.play_sound('', 80, False)
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
 | lang | 드롭다운 옵션 | 언어 코드 | 시스템 TTS 언어 (예: `'ko-KR'`, `'en-US'`) | - |
-| voice | 드롭다운 옵션 | 음성 이름 | 시스템 TTS 음성 이름 (예: `'Google 한국의'`) | - |
+| voice | 드롭다운 옵션 | 목소리 이름 | 시스템 TTS 목소리 이름 (예: `'Google 한국의'`) | - |
 
 ### Python
 ```python
 Utils.set_tts('ko-KR', '')
 ```
-
----
 
 ## 다음을 말하기 {#speak}
 

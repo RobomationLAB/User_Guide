@@ -19,7 +19,6 @@ neopixel = cheesestick.NeoPixel()
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 시작하기 {#start}
 
@@ -38,8 +37,6 @@ neopixel = cheesestick.NeoPixel()
 
 neopixel.start()
 ```
-
----
 
 ## 색 모드 설정하기 {#mode}
 
@@ -60,8 +57,6 @@ neopixel = cheesestick.NeoPixel()
 
 neopixel.mode('GRBW')
 ```
-
----
 
 ## 한 픽셀 색 설정하기 {#set_one_color}
 
@@ -85,8 +80,6 @@ neopixel = cheesestick.NeoPixel()
 neopixel.set_one_color(1, 'red')
 ```
 
----
-
 ## 색상 카테고리 블록으로 한 픽셀 색 설정하기 {#set_one_color_with_block}
 
 색상 카테고리 블록을 입력으로 받아 한 픽셀 색을 설정합니다.  
@@ -108,8 +101,6 @@ neopixel = cheesestick.NeoPixel()
 
 neopixel.set_one_color(1, *Utils.color('red'))
 ```
-
----
 
 ## 한 픽셀 RGB 만큼 색 변경하기 {#change_one_by_rgb}
 
@@ -134,8 +125,6 @@ neopixel = cheesestick.NeoPixel()
 neopixel.change_one_color(1, 10, 0, 0)
 ```
 
----
-
 ## 한 픽셀 끄기 {#turn_off_one}
 
 n번째 LED 색을 없앱니다.  
@@ -156,8 +145,6 @@ neopixel = cheesestick.NeoPixel()
 
 neopixel.turn_off_one(1)
 ```
-
----
 
 ## 범위 패턴 설정하기 {#set_range_pattern}
 
@@ -182,8 +169,6 @@ neopixel = cheesestick.NeoPixel()
 neopixel.set_range_pattern(1, 10, '3_colors')
 ```
 
----
-
 ## 범위 색 설정하기 {#set_range_color}
 
 지정한 픽셀 범위 전체에 동일한 색을 설정합니다.  
@@ -207,8 +192,6 @@ neopixel = cheesestick.NeoPixel()
 neopixel.set_range_color(1, 10, 'red')
 ```
 
----
-
 ## 색상 카테고리 블록으로 범위 색 설정하기 {#set_range_color_with_block}
 
 색상 카테고리 블록을 입력으로 받아 픽셀 범위 색을 설정합니다.  
@@ -231,8 +214,6 @@ neopixel = cheesestick.NeoPixel()
 
 neopixel.set_range_color(1, 10, *Utils.color('red'))
 ```
-
----
 
 ## 범위 RGB 만큼 색 변경하기 {#change_range_by_rgb}
 
@@ -258,8 +239,6 @@ neopixel = cheesestick.NeoPixel()
 neopixel.change_range_color(1, 10, 10, 0, 0)
 ```
 
----
-
 ## 범위 색 끄기 {#turn_off_range}
 
 지정한 범위에 해당하는 모든 LED의 색을 없앱니다.  
@@ -281,8 +260,6 @@ neopixel = cheesestick.NeoPixel()
 
 neopixel.turn_off_range(1, 10)
 ```
-
----
 
 ## n 칸마다 범위 색 설정하기 {#set_range_increment_color}
 
@@ -309,8 +286,6 @@ neopixel = cheesestick.NeoPixel()
 neopixel.set_range_increment_color(1, 10, 2, 'red')
 ```
 
----
-
 ## 색상 카테고리 블록으로 n 칸마다 범위 색 설정하기 {#set_range_increment_color_with_block}
 
 색상 카테고리 블록을 입력으로 받아 지정한 픽셀 범위 안에서 n 칸마다 색을 설정합니다.  
@@ -334,8 +309,6 @@ neopixel = cheesestick.NeoPixel()
 
 neopixel.set_range_increment_color(1, 10, 2, *Utils.color('red'))
 ```
-
----
 
 ## n 칸마다 범위 RGB 만큼 변경하기 {#change_range_increment_by_rgb}
 
@@ -362,8 +335,6 @@ neopixel = cheesestick.NeoPixel()
 neopixel.change_range_increment_color(1, 10, 2, 10, 0, 0)
 ```
 
----
-
 ## n 칸마다 범위 색 끄기 {#turn_off_range_increment}
 
 지정한 범위와 간격에 해당하는 모든 LED 색을 없앱니다.  
@@ -386,8 +357,6 @@ neopixel = cheesestick.NeoPixel()
 
 neopixel.turn_off_range_increment(1, 10, 2)
 ```
-
----
 
 ## 이동 / 회전 {#shift}
 
@@ -416,8 +385,6 @@ neopixel.shift('left', 1)
 neopixel.rotate('left', 1)
 ```
 
----
-
 ## 밝기 설정하기 {#set_brightness}
 
 네오픽셀의 밝기를 설정합니다.  
@@ -438,8 +405,6 @@ neopixel = cheesestick.NeoPixel()
 
 neopixel.set_brightness(50)
 ```
-
----
 
 ## 밝기 변경하기 {#change_brightness}
 

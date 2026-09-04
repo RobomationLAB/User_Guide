@@ -19,7 +19,6 @@ csd01 = cheesestick.CSD01()
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 입력 포트 설정하기 {#set_input_port}
 
@@ -41,8 +40,6 @@ csd01 = cheesestick.CSD01()
 csd01.set_port('Sa')
 ```
 
----
-
 ## 버튼 입력 값 {#button_input}
 
 선택한 포트의 버튼 입력 값  
@@ -63,8 +60,6 @@ csd01 = cheesestick.CSD01()
 
 csd01.button_input('Sa')
 ```
-
----
 
 ## 버튼이 눌렸는가? {#button_pressed}
 

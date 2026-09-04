@@ -19,7 +19,6 @@ csd03 = cheesestick.CSD03()
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 입력 포트 설정하기 {#set_input_port}
 
@@ -40,8 +39,6 @@ csd03 = cheesestick.CSD03()
 
 csd03.set_port('Sa')
 ```
-
----
 
 ## 입력 범위 설정하기 {#set_input_range}
 
@@ -68,8 +65,6 @@ csd03 = cheesestick.CSD03()
 
 csd03.set_input_range('Sa', 0, 255, 0, 100)
 ```
-
----
 
 ## 중간값으로 입력 범위 설정하기 {#set_input_range_median}
 
@@ -98,8 +93,6 @@ csd03 = cheesestick.CSD03()
 
 csd03.set_input_range_median('Sa', 0, 128, 255, -100, 0, 100)
 ```
-
----
 
 ## 입력값 {#get_input}
 

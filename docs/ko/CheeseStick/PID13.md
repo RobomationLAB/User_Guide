@@ -19,7 +19,6 @@ pid13 = cheesestick.PID13()
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 조이스틱 시작하기 {#start}
 
@@ -38,8 +37,6 @@ pid13 = cheesestick.PID13()
 
 pid13.start()
 ```
-
----
 
 ## 조이스틱 값 {#joystick}
 
@@ -62,8 +59,6 @@ pid13 = cheesestick.PID13()
 pid13.joystick('x')
 ```
 
----
-
 ## 버튼 입력 값 {#button_input}
 
 선택한 버튼의 입력 상태  
@@ -84,8 +79,6 @@ pid13 = cheesestick.PID13()
 
 pid13.button_input('a')
 ```
-
----
 
 ## 버튼을 클릭했는가? {#button_click}
 

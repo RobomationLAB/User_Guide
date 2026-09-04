@@ -20,7 +20,6 @@ cheesestick_1 = CheeseStick(1)
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 입력 모드 설정하기 {#set_input_mode}
 
@@ -41,8 +40,6 @@ cheesestick = CheeseStick(0)
 
 cheesestick.set_input_mode('Sa', 'button')
 ```
-
----
 
 ## 입력 범위 설정하기 {#set_input_range}
 
@@ -68,8 +65,6 @@ cheesestick = CheeseStick(0)
 
 cheesestick.set_input_range('Sa', 0, 255, 0, 100)
 ```
-
----
 
 ## 중간값으로 입력 범위 설정하기 {#set_input_range_median}
 
@@ -98,8 +93,6 @@ cheesestick = CheeseStick(0)
 cheesestick.set_input_range_median('Sa', 0, 128, 255, -100, 0, 100)
 ```
 
----
-
 ## 입력 값 {#get_input}
 
 선택한 포트의 입력 값
@@ -118,8 +111,6 @@ cheesestick = CheeseStick(0)
 
 cheesestick.get_input('Sa')
 ```
-
----
 
 ## 펄스 입력 모드 설정하기 {#set_pulse_input_mode}
 
@@ -141,8 +132,6 @@ cheesestick = CheeseStick(0)
 cheesestick.set_pulse_input_mode('Sc', 'pull-up')
 ```
 
----
-
 ## 펄스 입력 값 {#get_pulse_input}
 
 선택한 포트에 펄스 입력이 감지되었는지 여부
@@ -161,8 +150,6 @@ cheesestick = CheeseStick(0)
 
 cheesestick.get_pulse_input('Sc')
 ```
-
----
 
 ## 디지털 출력 설정하기 {#set_digital_output}
 
@@ -185,8 +172,6 @@ cheesestick = CheeseStick(0)
 cheesestick.set_digital_output('Sa', 1)
 ```
 
----
-
 ## PWM 출력 설정하기 {#set_pwm_output}
 
 지정한 포트의 PWM 출력 값을 설정합니다.  
@@ -207,8 +192,6 @@ cheesestick = CheeseStick(0)
 
 cheesestick.set_pwm_output('Sa', 50)
 ```
-
----
 
 ## PWM 출력 변경하기 {#change_pwm_output}
 
@@ -231,8 +214,6 @@ cheesestick = CheeseStick(0)
 cheesestick.change_pwm_output('Sa', 10)
 ```
 
----
-
 ## 버저음 설정하기 {#sound_buzz}
 
 치즈스틱의 버저음을 설정합니다.
@@ -251,8 +232,6 @@ cheesestick = CheeseStick(0)
 
 cheesestick.sound_buzz(440)
 ```
-
----
 
 ## 음계 연주하기 {#sound_note}
 
@@ -274,8 +253,6 @@ cheesestick = CheeseStick(0)
 cheesestick.sound_note('D', 5)
 ```
 
----
-
 ## 소리 재생하기 {#sound_clip}
 
 치즈스틱이 특정 사운드 클립을 재생합니다.
@@ -296,8 +273,6 @@ cheesestick = CheeseStick(0)
 cheesestick.sound_clip('siren', wait=True)
 ```
 
----
-
 ## 소리 끄기 {#sound_off}
 
 치즈스틱의 소리를 끕니다.
@@ -314,8 +289,6 @@ cheesestick = CheeseStick(0)
 
 cheesestick.sound_off()
 ```
-
----
 
 ## 가속도 값 {#acceleration}
 
@@ -336,8 +309,6 @@ cheesestick = CheeseStick(0)
 cheesestick.acceleration('x')
 ```
 
----
-
 ## 온도 센서 값 {#temperature}
 
 온도 센서 값
@@ -354,8 +325,6 @@ cheesestick = CheeseStick(0)
 
 cheesestick.temperature()
 ```
-
----
 
 ## 신호 세기 값 {#signal_strength}
 
@@ -374,8 +343,6 @@ cheesestick = CheeseStick(0)
 cheesestick.signal_strength()
 ```
 
----
-
 ## 배터리 전압 {#battery}
 
 배터리 전압
@@ -392,8 +359,6 @@ cheesestick = CheeseStick(0)
 
 cheesestick.battery()
 ```
-
----
 
 ## 상태 변경 여부 {#state_change}
 

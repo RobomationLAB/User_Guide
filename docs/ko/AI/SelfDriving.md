@@ -20,7 +20,6 @@ self_driving_1 = SelfDriving(1)
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 카메라 장치 선택하기 {#device}
 
@@ -40,8 +39,6 @@ self_driving = SelfDriving(0)
 
 self_driving.device('')
 ```
-
----
 
 ## 차선 색 설정하기 {#set_lane_color}
 
@@ -63,8 +60,6 @@ self_driving = SelfDriving(0)
 self_driving.set_lane('green', 'blue')
 ```
 
----
-
 ## 한 번 인식하기 {#detect_once}
 
 선택한 색깔/차선을 화면에서 찾아 딱 한번 영역을 표시합니다.
@@ -81,8 +76,6 @@ self_driving = SelfDriving(0)
 
 self_driving.detect_once()
 ```
-
----
 
 ## 연속 인식 시작 / 중지 {#detect_continuous}
 
@@ -106,8 +99,6 @@ self_driving.detect_continuous()
 self_driving.stop()
 ```
 
----
-
 ## 인식 화면 표시하기 {#display}
 
 카메라 화면에 색깔/차선 찾기 결과를 표시할지 말지를 결정합니다.
@@ -127,8 +118,6 @@ self_driving = SelfDriving(0)
 self_driving.display(True)
 self_driving.display(False)
 ```
-
----
 
 ## 차선 데이터 {#lane_data}
 
@@ -150,8 +139,6 @@ self_driving = SelfDriving(0)
 self_driving.lane('left', 'x')
 self_driving.lane('right', 'distance')
 ```
-
----
 
 ## 색 데이터 {#color_data}
 
@@ -175,8 +162,6 @@ self_driving.color('green', 'y')
 self_driving.color('blue', 'area')
 ```
 
----
-
 ## 두 색 사이 거리 {#color_to_color}
 
 두 색 사이의 거리를 반환합니다.
@@ -199,8 +184,6 @@ self_driving.get_distance('red', 'blue')  # 거리
 self_driving.get_distance('green', 'blue', 'horizontal')  # 수평 거리
 ```
 
----
-
 ## 차선 감지 여부 {#lane_detected}
 
 특정 차선을 찾았는지 여부
@@ -219,8 +202,6 @@ self_driving = SelfDriving(0)
 
 self_driving.lane_detected('left')
 ```
-
----
 
 ## 색 감지 여부 {#color_detected}
 

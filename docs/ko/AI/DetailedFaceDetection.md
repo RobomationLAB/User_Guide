@@ -20,7 +20,6 @@ detailed_face_detection_1 = DetailedFaceDetection(1)
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 카메라 장치 선택하기 {#device}
 
@@ -41,8 +40,6 @@ detailed_face_detection = DetailedFaceDetection(0)
 detailed_face_detection.device('')
 ```
 
----
-
 ## 모델 로드하기 {#load_model}
 
 학습된 얼굴 모델을 불러옵니다. '상세하게 얼굴 찾기' 모듈의 기능들을 사용하기 위해서는 이 작업이 반드시 필요합니다.
@@ -62,8 +59,6 @@ detailed_face_detection = DetailedFaceDetection(0)
 detailed_face_detection.load_model(wait=True)
 ```
 
----
-
 ## 한 번 인식하기 {#detect_once}
 
 현재 화면에 있는 얼굴을 찾아 딱 한번 표시합니다.
@@ -80,8 +75,6 @@ detailed_face_detection = DetailedFaceDetection(0)
 
 detailed_face_detection.detect_once()
 ```
-
----
 
 ## 연속 인식 시작 / 중지 {#detect_continuous}
 
@@ -105,8 +98,6 @@ detailed_face_detection.detect_continuous()
 detailed_face_detection.stop()
 ```
 
----
-
 ## 인식 화면 표시하기 {#display}
 
 카메라 화면에 얼굴 찾기 결과를 표시할지 말지를 결정합니다.
@@ -126,8 +117,6 @@ detailed_face_detection = DetailedFaceDetection(0)
 detailed_face_detection.display(True)
 detailed_face_detection.display(False)
 ```
-
----
 
 ## 얼굴 부위 좌표 {#face_data}
 
@@ -152,8 +141,6 @@ detailed_face_detection.upper_lip('x')
 detailed_face_detection.right_pupil('y')
 ```
 
----
-
 ## 얼굴 부위 사각형 정보 {#face_square}
 
 얼굴 부위별 영역 사각형의 위치/크기 값을 반환합니다.
@@ -174,8 +161,6 @@ detailed_face_detection = DetailedFaceDetection(0)
 detailed_face_detection.face('min_x')
 detailed_face_detection.left_eye('area')
 ```
-
----
 
 ## 두 부위 사이 거리 {#distance}
 
@@ -200,8 +185,6 @@ detailed_face_detection.get_distance('left_pupil', 'right_pupil', 'horizontal') 
 detailed_face_detection.get_distance('upper_lip', 'lower_lip', 'vertical')  # 세로 거리
 ```
 
----
-
 ## 모델 상태 {#model_state}
 
 얼굴 모델 로딩 상태를 반환합니다.  
@@ -219,8 +202,6 @@ detailed_face_detection = DetailedFaceDetection(0)
 
 detailed_face_detection.model_state()
 ```
-
----
 
 ## 얼굴 감지 여부 {#detected}
 

@@ -20,7 +20,6 @@ beagle_1 = Beagle(1)
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 바퀴 속도 설정하기 {#set_wheel_speed}
 
@@ -41,8 +40,6 @@ beagle = Beagle(0)
 
 beagle.set_wheel_speed('both', 50)
 ```
-
----
 
 ## 거리 이동하기 {#move_distance}
 
@@ -67,8 +64,6 @@ beagle = Beagle(0)
 
 beagle.move_distance(50, 'cm', wait=True)
 ```
-
----
 
 ## 시간 이동하기 {#move_time}
 
@@ -95,8 +90,6 @@ beagle.move_time(5, wait=True)
 beagle.move_time(0.5, wait=False)
 ```
 
----
-
 ## 제자리 돌기 {#turn_degree}
 
 제자리에서 회전할 방향과 각도를 설정합니다.  
@@ -118,8 +111,6 @@ beagle = Beagle(0)
 
 beagle.turn_degree('left', 90, wait=True)
 ```
-
----
 
 ## 바퀴 속도 변경하기 {#change_speed}
 
@@ -143,8 +134,6 @@ beagle = Beagle(0)
 beagle.change_wheel_speed('both', 10)
 ```
 
----
-
 ## 정지하기 {#stop}
 
 비글의 이동을 멈춥니다.  
@@ -163,8 +152,6 @@ beagle = Beagle(0)
 beagle.stop()
 ```
 
----
-
 ## 바퀴가 움직이는 중인가? {#wheel_moving}
 
 바퀴가 움직이는 중이면 true, 멈춰있으면 false를 반환합니다.
@@ -181,8 +168,6 @@ beagle = Beagle(0)
 
 beagle.wheel_moving()
 ```
-
----
 
 ## 버저음 설정하기 {#sound_buzz}
 
@@ -205,8 +190,6 @@ beagle = Beagle(0)
 beagle.sound_buzz(440)
 ```
 
----
-
 ## 음계 연주하기 {#sound_note}
 
 비글이 지정된 음계를 재생합니다.
@@ -226,8 +209,6 @@ beagle = Beagle(0)
 
 beagle.sound_note('D', 5)
 ```
-
----
 
 ## 소리 재생하기 {#sound_clip}
 
@@ -250,8 +231,6 @@ beagle = Beagle(0)
 beagle.sound_clip('siren', wait=True)
 ```
 
----
-
 ## 소리 끄기 {#sound_off}
 
 비글의 소리를 끕니다.
@@ -269,8 +248,6 @@ beagle = Beagle(0)
 beagle.sound_off()
 ```
 
----
-
 ## 소리가 재생 중인가? {#sound_playing}
 
 소리가 재생 중이면 true, 재생 중이 아니면 false를 반환합니다.
@@ -287,8 +264,6 @@ beagle = Beagle(0)
 
 beagle.sound_playing()
 ```
-
----
 
 ## 바퀴 속도 값 {#wheel_speed}
 
@@ -309,8 +284,6 @@ beagle = Beagle(0)
 beagle.wheel_speed('left')
 ```
 
----
-
 ## 엔코더 값 {#encoder}
 
 특정 바퀴의 엔코더 값
@@ -329,8 +302,6 @@ beagle = Beagle(0)
 
 beagle.encoder('left')
 ```
-
----
 
 ## 자이로 센서 값 {#gyroscope}
 
@@ -351,8 +322,6 @@ beagle = Beagle(0)
 beagle.gyroscope('x')
 ```
 
----
-
 ## 가속도 센서 값 {#accelerometer}
 
 특정 축의 가속도 센서의 값
@@ -371,8 +340,6 @@ beagle = Beagle(0)
 
 beagle.accelerometer('x')
 ```
-
----
 
 ## 지자계 센서 값 {#magnetometer}
 
@@ -393,8 +360,6 @@ beagle = Beagle(0)
 beagle.magnetometer('x')
 ```
 
----
-
 ## 온도 센서 값 {#temperature}
 
 온도 센서 값
@@ -411,8 +376,6 @@ beagle = Beagle(0)
 
 beagle.temperature()
 ```
-
----
 
 ## 신호 세기 값 {#signal_strength}
 
@@ -431,8 +394,6 @@ beagle = Beagle(0)
 beagle.signal_strength()
 ```
 
----
-
 ## 배터리 전압 {#battery}
 
 배터리 전압
@@ -449,8 +410,6 @@ beagle = Beagle(0)
 
 beagle.battery()
 ```
-
----
 
 ## 상태 변경 여부 {#state_change}
 
@@ -481,8 +440,6 @@ beagle = Beagle(0)
 beagle.accelerometer('x') > 0.8
 ```
 
----
-
 ## 라이다 켜기 / 끄기 {#lidar_power}
 
 라이다 센서를 활성화하거나 비활성화합니다.
@@ -501,8 +458,6 @@ beagle = Beagle(0)
 
 beagle.lidar_power(True)
 ```
-
----
 
 ## 라이다 ~번째 사물의 거리 값 {#lidar_value}
 
@@ -524,8 +479,6 @@ beagle = Beagle(0)
 beagle.lidar_value(0)
 ```
 
----
-
 ## 라이다 방향별 거리 값 {#lidar_directions}
 
 라이다 센서가 측정한 앞, 뒤, 양 옆, 대각선 방향의 거리를 나타냅니다.  
@@ -545,8 +498,6 @@ beagle = Beagle(0)
 
 beagle.lidar_directions('front')
 ```
-
----
 
 ## 라이다가 켜져 있는가? {#lidar_state}
 

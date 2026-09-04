@@ -19,7 +19,6 @@ csd07 = cheesestick.CSD07()
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 입력 포트 설정하기 {#set_input_port}
 
@@ -40,8 +39,6 @@ csd07 = cheesestick.CSD07()
 
 csd07.set_port('Sa')
 ```
-
----
 
 ## 소리 센서 값 {#get_input}
 

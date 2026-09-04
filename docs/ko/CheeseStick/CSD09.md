@@ -19,7 +19,6 @@ csd09 = cheesestick.CSD09()
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 서보 모터 시작하기 {#start_servo_motor}
 
@@ -41,8 +40,6 @@ csd09 = cheesestick.CSD09()
 
 csd09.start_servo_motor('Sa')
 ```
-
----
 
 ## 서보 모터 각도 설정하기 {#set_servo_motor}
 
@@ -66,8 +63,6 @@ csd09 = cheesestick.CSD09()
 csd09.set_servo_motor('Sa', 90)
 ```
 
----
-
 ## 서보 모터 각도 변경하기 {#change_servo_motor}
 
 지정한 포트의 서보 모터 각도를 변경합니다.  
@@ -90,8 +85,6 @@ csd09 = cheesestick.CSD09()
 csd09.change_servo_motor('Sa', 10)
 ```
 
----
-
 ## 서보 모터 정지하기 {#stop_servo_motor}
 
 지정한 포트의 서보 모터의 전원을 끕니다.
@@ -111,8 +104,6 @@ csd09 = cheesestick.CSD09()
 
 csd09.stop_servo_motor('Sa')
 ```
-
----
 
 ## DC 모터 시작하기 {#start_DC_motor}
 
@@ -135,8 +126,6 @@ csd09 = cheesestick.CSD09()
 csd09.start_dc_motor('Mab')
 ```
 
----
-
 ## DC 모터 속도 설정하기 {#set_DC_motor}
 
 DC 모터의 PWM 출력값을 설정합니다.
@@ -157,8 +146,6 @@ csd09 = cheesestick.CSD09()
 
 csd09.set_dc_motor('Mab', 50)
 ```
-
----
 
 ## DC 모터 속도 변경하기 {#change_DC_motor}
 
@@ -181,8 +168,6 @@ csd09 = cheesestick.CSD09()
 csd09.change_dc_motor('Mab', 10)
 ```
 
----
-
 ## DC 모터 정지하기 {#stop_DC_motor}
 
 DC 모터의 출력을 정지합니다.
@@ -203,8 +188,6 @@ csd09 = cheesestick.CSD09()
 csd09.stop_dc_motor('Mab')
 ```
 
----
-
 ## 스텝 모터 시작하기 {#start_step_motor}
 
 스텝 모터를 사용합니다.
@@ -222,8 +205,6 @@ csd09 = cheesestick.CSD09()
 
 csd09.start_step_motor()
 ```
-
----
 
 ## 스텝 모터 모드 설정하기 {#set_step_motor_mode}
 
@@ -247,8 +228,6 @@ csd09 = cheesestick.CSD09()
 csd09.set_step_motor_mode('full_step')
 ```
 
----
-
 ## 스텝 모터 속도 설정하기 {#set_step_motor_speed}
 
 스텝 모터의 속도를 설정합니다.  
@@ -270,8 +249,6 @@ csd09 = cheesestick.CSD09()
 
 csd09.set_step_motor_speed(100)
 ```
-
----
 
 ## 스텝 모터 회전하기 {#rotate_step_motor}
 
@@ -301,8 +278,6 @@ csd09.rotate_step_motor(360, wait=True)
 csd09.rotate_step_motor(360, wait=False)
 ```
 
----
-
 ## 스텝 모터 속도 변경하기 {#change_step_motor_speed}
 
 스텝 모터의 속도를 변경합니다.  
@@ -323,8 +298,6 @@ csd09 = cheesestick.CSD09()
 
 csd09.change_step_motor_speed(10)
 ```
-
----
 
 ## 스텝 모터 정지하기 {#stop_step_motor}
 
@@ -349,8 +322,6 @@ csd09.stop_step_motor()
 # unit = "power"
 csd09.turn_off_step_motor()
 ```
-
----
 
 ## 누적 스텝 수 {#step_motor_steps}
 

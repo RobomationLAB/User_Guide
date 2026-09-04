@@ -19,7 +19,6 @@ pid26 = cheesestick.PID26()
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 환경 센서 시작하기 {#start}
 
@@ -39,8 +38,6 @@ pid26 = cheesestick.PID26()
 pid26.start()
 ```
 
----
-
 ## 온도 {#temperature}
 
 PID26 환경 센서로 측정한 온도 값을 반환합니다. 
@@ -59,8 +56,6 @@ pid26 = cheesestick.PID26()
 pid26.temperature()
 ```
 
----
-
 ## 습도 {#humidity}
 
 PID26 환경 센서로 측정한 습도 값을 반환합니다.
@@ -78,8 +73,6 @@ pid26 = cheesestick.PID26()
 
 pid26.humidity()
 ```
-
----
 
 ## 기압 {#pressure}
 

@@ -20,7 +20,6 @@ raccoon_1 = RaccoonBot(1)
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 관절 모터 제어 켜기 / 끄기 {#motor}
 
@@ -47,8 +46,6 @@ raccoon.motor(-1, False)
 raccoon.motor(1, True)
 ```
 
----
-
 ## 관절 속도 설정하기 {#speed_joint}
 
 선택한 관절의 속도를 설정합니다.
@@ -69,8 +66,6 @@ raccoon = RaccoonBot(0)
 raccoon.set_speed_joint(1, 100)
 ```
 
----
-
 ## 관절 속도 변경하기 {#change_speed_joint}
 
 선택한 관절의 속도를 변경합니다.
@@ -90,8 +85,6 @@ raccoon = RaccoonBot(0)
 
 raccoon.change_speed_joint(1, 50)
 ```
-
----
 
 ## 관절 속도 한 번에 설정하기 {#speed_joints}
 
@@ -116,8 +109,6 @@ raccoon.set_speed_joints(10, 20, 30, 40)
 raccoon.set_speed_joints(*arr)
 ```
 
----
-
 ## 관절 각도 제어 속도 설정하기 {#angle_speed}
 
 각도 제어 모드에서 관절을 제어할 속도를 설정합니다.
@@ -136,8 +127,6 @@ raccoon = RaccoonBot(0)
 
 raccoon.angle_max_speed(100)
 ```
-
----
 
 ## 관절 각도 설정하기 {#angle_joint}
 
@@ -167,8 +156,6 @@ raccoon = RaccoonBot(0)
 raccoon.set_angle_joint(1, 90, wait=True)
 ```
 
----
-
 ## 관절 각도 변경하기 {#change_angle_joint}
 
 선택한 관절의 각도를 변경합니다.
@@ -190,8 +177,6 @@ raccoon = RaccoonBot(0)
 raccoon.change_angle_joint(1, 10, wait=True)
 ```
 
----
-
 ## 관절 각도 한 번에 설정하기 {#angle_joints}
 
 네 관절의 각도를 한 번에 설정합니다.
@@ -212,8 +197,6 @@ raccoon = RaccoonBot(0)
 # 명시적 배열
 raccoon.set_angle_joints(0, 0, 0, 0, wait=True)
 ```
-
----
 
 ## 관절 상태 초기화하기 {#default_angle_joints}
 
@@ -241,8 +224,6 @@ raccoon = RaccoonBot(0)
 raccoon.set_angle_joints('home', wait=True)
 ```
 
----
-
 ## 관절 각도 저장하기 {#save_encoder}
 
 현재 엔코더 값을 임의의 변수에 저장합니다.
@@ -263,8 +244,6 @@ encoder = None
 
 encoder = raccoon.save_encoder([3, -6, -73, 60])
 ```
-
----
 
 ## 특정 좌표 값 정하기 {#set_coordinate}
 
@@ -298,8 +277,6 @@ raccoon.set_coordinate('wrist', 'x', 10, 'cm', wait=True)
 raccoon.set_coordinate('end_effector', 'z', 15, 'cm', wait=True)
 ```
 
----
-
 ## 특정 좌표 값 바꾸기 {#change_coordinate}
 
 현재 위치를 기준으로 특정 좌표 값을 변경하여 로봇 팔을 이동합니다.  
@@ -328,8 +305,6 @@ raccoon = RaccoonBot(0)
 raccoon.change_coordinate('wrist', 'y', 5, 'cm', wait=True)
 ```
 
----
-
 ## xyz 좌표로 이동하기 {#set_coordinates}
 
 x, y, z 좌표를 각각 지정한 값으로 한 번에 설정합니다.  
@@ -354,8 +329,6 @@ raccoon = RaccoonBot(0)
 raccoon.set_coordinates('wrist', 0, 15, 20, 'cm', wait=True)
 ```
 
----
-
 ## 말단 장치 고정 설정하기 {#lock}
 
 그리퍼를 고정할 방향을 설정합니다. 옵션이 수평 또는 수직으로 설정된 이후로는, 관절 4의 속도나 각도를 제어할 수 없습니다.
@@ -374,8 +347,6 @@ raccoon = RaccoonBot(0)
 
 raccoon.lock('horizontal')
 ```
-
----
 
 ## 말단 장치로 사물 집기 / 놓기 {#end_effector}
 
@@ -400,8 +371,6 @@ raccoon.pick()
 raccoon.place()
 ```
 
----
-
 ## 말단 장치 종류 {#end_effector_device}
 
 현재 연결되어 있는 그리퍼 번호  
@@ -420,8 +389,6 @@ raccoon = RaccoonBot(0)
 raccoon.end_effector_device()
 ```
 
----
-
 ## 말단 장치 상태 {#end_effector_status}
 
 그리퍼가 사물을 잡고 있는 상태  
@@ -439,8 +406,6 @@ raccoon = RaccoonBot(0)
 
 raccoon.end_effector_status()
 ```
-
----
 
 ## 음계 연주하기 {#sound_note}
 
@@ -462,8 +427,6 @@ raccoon = RaccoonBot(0)
 raccoon.sound_note('D', 5)
 ```
 
----
-
 ## 소리 재생하기 {#sound_clip}
 
 라쿤봇이 특정 사운드 클립을 재생합니다.
@@ -484,8 +447,6 @@ raccoon = RaccoonBot(0)
 raccoon.sound_clip('siren', wait=True)
 ```
 
----
-
 ## 소리 끄기 {#sound_off}
 
 라쿤봇의 소리를 끕니다.
@@ -502,8 +463,6 @@ raccoon = RaccoonBot(0)
 
 raccoon.sound_off()
 ```
-
----
 
 ## 엔코더 값 {#encoder}
 
@@ -527,8 +486,6 @@ raccoon.encoder(1)
 # 모든 관절
 raccoon.encoder(-1)
 ```
-
----
 
 ## 선택한 요소의 좌표 {#coordinate}
 
@@ -555,8 +512,6 @@ raccoon.get_coordinates('wrist', 'x')
 raccoon.get_coordinates('wrist')
 ```
 
----
-
 ## 신호 세기 값 {#signal_strength}
 
 신호 세기
@@ -574,8 +529,6 @@ raccoon = RaccoonBot(0)
 raccoon.signal_strength()
 ```
 
----
-
 ## 배터리 전압 {#battery}
 
 배터리 전압
@@ -592,8 +545,6 @@ raccoon = RaccoonBot(0)
 
 raccoon.battery()
 ```
-
----
 
 ## 버튼이 눌려있는가? {#button}
 
@@ -615,8 +566,6 @@ raccoon = RaccoonBot(0)
 raccoon.button('teach', 'pressed')
 ```
 
----
-
 ## 컨베이어 속도 설정하기 {#conveyor_speed}
 
 컨베이어 벨트의 속도를 설정합니다. 속도의 범위는 -100 ~ 100 입니다.
@@ -635,8 +584,6 @@ raccoon = RaccoonBot(0)
 
 raccoon.set_conveyor_speed(100)
 ```
-
----
 
 ## 컨베이어 이동 거리 설정하기 {#conveyor_distance}
 
@@ -659,8 +606,6 @@ raccoon = RaccoonBot(0)
 raccoon.conveyor_move(50, 'cm', wait=True)
 ```
 
----
-
 ## 컨베이어 속도 변경하기 {#change_conveyor_speed}
 
 컨베이어 벨트의 속도를 변경합니다.
@@ -680,8 +625,6 @@ raccoon = RaccoonBot(0)
 raccoon.change_conveyor_speed(10)
 ```
 
----
-
 ## 컨베이어 정지하기 {#stop_conveyor}
 
 컨베이어를 정지합니다.
@@ -699,8 +642,6 @@ raccoon = RaccoonBot(0)
 raccoon.stop_conveyor()
 ```
 
----
-
 ## 컨베이어가 동작 중인가? {#conveyor_running}
 
 컨베이어 벨트 동작 여부
@@ -717,8 +658,6 @@ raccoon = RaccoonBot(0)
 
 raccoon.conveyor_running()
 ```
-
----
 
 ## 컨베이어 버튼이 눌려있는가? {#conveyor_button}
 

@@ -20,7 +20,6 @@ face_expression_1 = FaceExpression(1)
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 카메라 장치 선택하기 {#device}
 
@@ -41,8 +40,6 @@ face_expression = FaceExpression(0)
 face_expression.device('')
 ```
 
----
-
 ## 모델 로드하기 {#load_model}
 
 학습된 나이, 성별, 표정 모델을 불러옵니다. '나이, 성별, 표정' 모듈의 기능들을 사용하기 위해서는 이 작업이 반드시 필요합니다.
@@ -62,8 +59,6 @@ face_expression = FaceExpression(0)
 face_expression.load_model(wait=True)
 ```
 
----
-
 ## 한 번 인식하기 {#detect_once}
 
 현재 화면에 있는 얼굴을 분석하여 예측한 나이, 성별, 표정을 딱 한번 표시합니다.
@@ -80,8 +75,6 @@ face_expression = FaceExpression(0)
 
 face_expression.detect_once()
 ```
-
----
 
 ## 연속 인식 시작 / 중지 {#detect_continuous}
 
@@ -105,8 +98,6 @@ face_expression.detect_continuous()
 face_expression.stop()
 ```
 
----
-
 ## 인식 화면 표시하기 {#display}
 
 카메라 화면에 나이, 성별, 표정 인식 결과를 표시할지 말지를 결정합니다.
@@ -127,8 +118,6 @@ face_expression.display(True)
 face_expression.display(False)
 ```
 
----
-
 ## 나이 {#age}
 
 나이
@@ -145,8 +134,6 @@ face_expression = FaceExpression(0)
 
 face_expression.age()
 ```
-
----
 
 ## 성별 {#gender}
 
@@ -165,8 +152,6 @@ face_expression = FaceExpression(0)
 face_expression.gender()
 ```
 
----
-
 ## 표정 {#expression}
 
 표정
@@ -184,8 +169,6 @@ face_expression = FaceExpression(0)
 face_expression.expression()
 ```
 
----
-
 ## 성별 감지 여부 {#gender_detected}
 
 성별 인식 여부
@@ -202,8 +185,6 @@ face_expression = FaceExpression(0)
 
 face_expression.gender_detected()
 ```
-
----
 
 ## 특정 성별인가? {#gender_check}
 
@@ -225,8 +206,6 @@ face_expression.is_gender('male')
 face_expression.is_gender('female')
 ```
 
----
-
 ## 성별 신뢰도 {#gender_confidence}
 
 선택한 성별일 확률(신뢰도)
@@ -247,8 +226,6 @@ face_expression.gender_confidence('male')
 face_expression.gender_confidence('female')
 ```
 
----
-
 ## 표정 감지 여부 {#expression_detected}
 
 표정 인식 여부
@@ -265,8 +242,6 @@ face_expression = FaceExpression(0)
 
 face_expression.expression_detected()
 ```
-
----
 
 ## 특정 표정인가? {#expression_check}
 
@@ -288,8 +263,6 @@ face_expression.is_expression('happy')
 face_expression.is_expression('sad')
 ```
 
----
-
 ## 표정 신뢰도 {#expression_confidence}
 
 선택한 표정일 확률(신뢰도)
@@ -309,8 +282,6 @@ face_expression = FaceExpression(0)
 face_expression.expression_confidence('happy')
 face_expression.expression_confidence('angry')
 ```
-
----
 
 ## 모델 상태 {#model_state}
 

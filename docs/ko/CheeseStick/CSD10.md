@@ -19,7 +19,6 @@ csd10 = cheesestick.CSD10()
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 입력 포트 설정하기 {#set_input_port}
 
@@ -40,8 +39,6 @@ csd10 = cheesestick.CSD10()
 
 csd10.set_port('Sa')
 ```
-
----
 
 ## 조도 센서 값 {#get_input}
 

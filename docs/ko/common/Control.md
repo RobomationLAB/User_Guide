@@ -7,39 +7,6 @@ title: 제어
 블록 코딩에서 **제어 블록**은 프로그램의 흐름을 조작하는 역할을 합니다.  
 일정 시간 대기하거나, 키보드 입력 감지, 로그 출력 등의 기능을 수행할 수 있습니다.
 
-<br>
-
-## 1 프레임 기다리기 {#wait_1msec}
-
-프로그램의 실행을 한 프레임(약 0.001초) 동안 멈춥니다.
-
-<BlockImage module="common/control" id="wait_1msec" />
-
-### 매개변수
-
-(없음 — 0.001 초 고정)
-
-### Python
-```python
-Utils.wait(0.001)
-```
-
----
-
-## 무한 기다리기 {#wait_forever}
-
-프로그램의 실행을 멈추고 무한히 대기합니다.
-
-### 매개변수
-
-(없음)
-
-### Python
-```python
-Utils.wait_forever()
-```
-
----
 
 ## 기다리기 {#wait_sec}
 
@@ -63,7 +30,35 @@ Utils.wait(2)
 Utils.wait(myVar)
 ```
 
----
+## 1 프레임 기다리기 {#wait_1msec}
+
+프로그램의 실행을 한 프레임(약 0.001초) 동안 멈춥니다.
+
+<BlockImage module="common/control" id="wait_1msec" />
+
+### 매개변수
+
+(없음 — 0.001 초 고정)
+
+### Python
+```python
+Utils.wait(0.001)
+```
+
+<!--
+## 무한 기다리기 {#wait_forever}
+
+프로그램의 실행을 멈추고 무한히 대기합니다.
+
+### 매개변수
+
+(없음)
+
+### Python
+```python
+Utils.wait_forever()
+```
+-->
 
 ## 키 입력 {#key_pressed}
 
@@ -75,14 +70,12 @@ Utils.wait(myVar)
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| key | 입력값 | 키 이름 | 문자열: space, up, left, right, down, a~z, 0~9, shift, ctrl, alt, enter, tab, esc, backspace | - |
+| key | 입력값 | 키 이름 | space, up, left, right, down, a~z, 0~9,<br>shift, ctrl, alt, enter, tab, esc, backspace | - |
 
 ### Python
 ```python
 Utils.keypressed('space')
 ```
-
----
 
 ## 로그 출력하기 {#log}
 
@@ -95,15 +88,13 @@ Utils.keypressed('space')
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
 | data | 입력값 | 출력할 값 | 임의 값 | - |
-| tag | 입력값 | 로그 태그 | 문자열 | None |
-| unit | 입력값 | 단위 표시 | 문자열 | None |
+| tag | 입력값 | 로그 태그 | 문자열 | - |
+| unit | 입력값 | 단위 표시 | 문자열 | - |
 
 ### Python
 ```python
-Utils.log(data, 'speed', 'cm/s')
+Utils.log(data, '', '')
 ```
-
----
 
 ## 스코프 출력하기 {#scope}
 
@@ -124,5 +115,5 @@ Utils.log(data, 'speed', 'cm/s')
 
 ### Python
 ```python
-Utils.scope(signal, 'channel1', -100, 100, '#ff0000')
+Utils.scope(signal, '', 0, 100, '#000000')
 ```

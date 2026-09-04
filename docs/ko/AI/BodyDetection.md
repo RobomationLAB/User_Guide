@@ -20,7 +20,6 @@ body_detection_1 = BodyDetection(1)
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 카메라 장치 선택하기 {#device}
 
@@ -41,8 +40,6 @@ body_detection = BodyDetection(0)
 body_detection.device('')
 ```
 
----
-
 ## 모델 로드하기 {#load_model}
 
 학습된 몸 모델을 불러옵니다. '몸 찾기' 모듈의 기능들을 사용하기 위해서는 이 작업이 반드시 필요합니다.
@@ -62,8 +59,6 @@ body_detection = BodyDetection(0)
 body_detection.load_model(wait=True)
 ```
 
----
-
 ## 한 번 인식하기 {#detect_once}
 
 현재 화면에 있는 몸을 찾아 딱 한번 표시합니다.
@@ -80,8 +75,6 @@ body_detection = BodyDetection(0)
 
 body_detection.detect_once()
 ```
-
----
 
 ## 연속 인식 시작 / 중지 {#detect_continuous}
 
@@ -105,8 +98,6 @@ body_detection.detect_continuous()
 body_detection.stop()
 ```
 
----
-
 ## 인식 화면 표시하기 {#display}
 
 카메라 화면에 몸 찾기 결과를 표시할지 말지를 결정합니다.
@@ -126,8 +117,6 @@ body_detection = BodyDetection(0)
 body_detection.display(True)
 body_detection.display(False)
 ```
-
----
 
 ## 신체 부위 좌표 {#body_data}
 
@@ -153,8 +142,6 @@ body_detection.right_shoulder('y')
 body_detection.left_hand('x')
 ```
 
----
-
 ## 두 부위 사이 거리 {#body_distance}
 
 신체 부위 두 곳 사이의 거리를 반환합니다.
@@ -178,8 +165,6 @@ body_detection.get_distance('left_wrist', 'right_wrist', 'horizontal')  # 가로
 body_detection.get_distance('left_hip', 'left_knee', 'vertical')  # 세로 거리
 ```
 
----
-
 ## 모델 상태 {#model_state}
 
 몸 모델 로딩 상태를 반환합니다.  
@@ -197,8 +182,6 @@ body_detection = BodyDetection(0)
 
 body_detection.model_state()
 ```
-
----
 
 ## 신체 감지 여부 {#detected}
 

@@ -20,7 +20,6 @@ hand_detection_1 = HandDetection(1)
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 카메라 장치 선택하기 {#device}
 
@@ -41,8 +40,6 @@ hand_detection = HandDetection(0)
 hand_detection.device('')
 ```
 
----
-
 ## 모델 로드하기 {#load_model}
 
 학습된 손 모델을 불러옵니다. '손 찾기' 모듈의 기능들을 사용하기 위해서는 이 작업이 반드시 필요합니다.
@@ -61,8 +58,6 @@ hand_detection = HandDetection(0)
 
 hand_detection.load_model(wait=True)
 ```
-
----
 
 ## 최대 손 수 설정하기 {#max_hands}
 
@@ -84,8 +79,6 @@ hand_detection.max_hands('one')
 hand_detection.max_hands('both')
 ```
 
----
-
 ## 한 번 인식하기 {#detect_once}
 
 현재 화면에 있는 손을 찾아 딱 한번 표시합니다.
@@ -102,8 +95,6 @@ hand_detection = HandDetection(0)
 
 hand_detection.detect_once()
 ```
-
----
 
 ## 연속 인식 시작 / 중지 {#detect_continuous}
 
@@ -127,8 +118,6 @@ hand_detection.detect_continuous()
 hand_detection.stop()
 ```
 
----
-
 ## 인식 화면 표시하기 {#display}
 
 카메라 화면에 손 찾기 결과를 표시할지 말지를 결정합니다.
@@ -148,8 +137,6 @@ hand_detection = HandDetection(0)
 hand_detection.display(True)
 hand_detection.display(False)
 ```
-
----
 
 ## 손 부위 좌표 {#hand_data}
 
@@ -175,8 +162,6 @@ hand_detection.hand('left', 'hand', 'min_x')
 hand_detection.hand('right', 'palm', 'width')
 ```
 
----
-
 ## 손가락 관절 좌표 {#joint_data}
 
 지정한 손가락의 관절 좌표를 반환합니다.
@@ -200,8 +185,6 @@ hand_detection.finger('left', 'index', 'first', 'x')
 hand_detection.finger('right', 'thumb', 'last', 'y')
 ```
 
----
-
 ## 손 사각형 정보 {#hand_square}
 
 지정한 손 영역 사각형의 위치/크기 값을 반환합니다.
@@ -223,8 +206,6 @@ hand_detection = HandDetection(0)
 hand_detection.hand('left', 'hand', 'min_x')
 hand_detection.hand('right', 'palm', 'width')
 ```
-
----
 
 ## 손과 손 사이 거리 {#hand_to_hand_distance}
 
@@ -248,8 +229,6 @@ hand_detection = HandDetection(0)
 hand_detection.get_distance('left_palm', 'right_palm')  
 ```
 
----
-
 ## 손과 손가락 사이 거리 {#hand_to_joint_distance}
 
 손 부위와 손가락 관절 사이의 거리를 반환합니다.
@@ -271,8 +250,6 @@ hand_detection = HandDetection(0)
 # 손 ↔ 손가락 관절 / 가로 거리
 hand_detection.get_distance('left_palm', 'right_index_first')
 ```
-
----
 
 ## 손가락과 손가락 사이 거리 {#joint_to_joint_distance}
 
@@ -296,8 +273,6 @@ hand_detection = HandDetection(0)
 hand_detection.get_distance('left_thumb_last', 'right_index_first', 'vertical')
 ```
 
----
-
 ## 모델 상태 {#model_state}
 
 손 모델 로딩 상태를 반환합니다.  
@@ -315,8 +290,6 @@ hand_detection = HandDetection(0)
 
 hand_detection.model_state()
 ```
-
----
 
 ## 손 감지 여부 {#detected}
 

@@ -11,17 +11,16 @@ title: 문자열
 
 문자열에는 대문자 또는 소문자로 된 문자, 숫자, 구두점, 기타 기호 및 단어 사이의 공백이 포함될 수 있습니다.  
 
-<br>
 
-## 문자열 만들기 {#text}
+## 문자열 {#text}
 
 문자열은 대문자 또는 소문자로 된 문자, 숫자, 구두점, 기타 기호 및 단어 사이의 공백이 포함될 수 있습니다.
 
 <BlockImage module="common/text" id="text" />
 
-## 문자열 연결 {#text_join}
+## 텍스트 만들기 {#text_join}
 
-**문자열 만들기** 블록은 여러 문자열의 값을 결합(연결)하여 새로운 문자열을 생성합니다.
+**텍스트 만들기** 블록은 여러 문자열의 값을 결합(연결)하여 새로운 문자열을 생성합니다.
 
 <BlockImage module="common/text" id="text_join" />
 
@@ -30,10 +29,9 @@ title: 문자열
 '' + str(A) + str(B) + str(C)
 ```
 
-## 문자열 수정 (...내용 덧붙이기) {#text_append}
+## 문자열 덧붙이기 {#text_append}
 
-**...내용 덧붙이기** 블록은 지정된 변수에 주어진 문자열를 추가합니다.
-아래 `greeting` 변수의 값이 "`hello`"에서 "`hello, there!`"로 변경됩니다.
+**문자열 덧붙이기** 블록은 지정된 변수에 주어진 문자열을 추가합니다.
 
 <BlockImage module="common/text" id="text_append" />
 
@@ -44,8 +42,8 @@ VAR = str(VAR) + TEXT
 
 ## 문자열 길이 {#text_length}
 
-**길이** 블록은 각 문자열에서 문자, 숫자 등을 세어 총 길이를 반환합니다.
-아래 "`We're #1!`"의 길이는 9이며, 빈 문자열의 길이는 0입니다.
+**길이** 블록은 각 문자열에서 문자, 숫자 등을 세어 총 길이를 반환합니다.  
+아래 `abc`의 길이는 3이며, 빈 문자열의 길이는 0입니다.
 
 <BlockImage module="common/text" id="text_length" />
 
@@ -95,7 +93,7 @@ TEXT[int(random.random() * len(TEXT))]
 
 ## 문자열 일부 추출 {#text_getSubstring}
 
-**문자열에서...부분 문자열 가져오기** 블록을 사용하면 특정 범위의 문자열를 추출할 수 있습니다.
+**문자열 일부 추출** 블록을 사용하면 특정 범위의 문자열를 추출할 수 있습니다.
 
 <BlockImage module="common/text" id="text_getSubstring" />
 
@@ -108,38 +106,38 @@ TEXT[at1:at2]
 
 이 블록은 입력 문자열를 다음 형식 중 하나로 변환합니다:
 
-- **대문자** (모든 문자 대문자로 변환)
-- **소문자**
-- **첫 글자만 대문자** (각 단어의 첫 글자만 대문자로 변환)
+- **대문자**: 모든 문자 대문자로 변환
+- **소문자**: 모든 문자 소문자로 변환
+- **첫 글자만 대문자**: 각 단어의 첫 글자만 대문자, 나머지는 소문자로 변환
 
 <BlockImage module="common/text" id="text_changeCase" />
 
 ### Python
 ```python
-TEXT.upper()
-TEXT.lower()
-TEXT.title()
+TEXT.upper() # 대문자
+TEXT.lower() # 소문자
+TEXT.title() # 첫 글자만 대문자
 ```
 
 ## 공백 제거 {#text_trim}
 
 다음 블록은 문자열에서 다음 위치의 공백을 제거합니다:
-- 문자열의 앞쪽
-- 문자열의 끝쪽
-- 양쪽 모두
+- 양쪽
+- 왼쪽
+- 오른쪽
 
 <BlockImage module="common/text" id="text_trim" />
 
 ### Python
 ```python
-TEXT.strip()
-TEXT.lstrip()
-TEXT.rstrip()
+TEXT.strip()    # 양쪽
+TEXT.lstrip()   # 왼쪽
+TEXT.rstrip()   # 오른쪽
 ```
 
 ## 문자열에서 특정 문자열 숫자 세기 {#text_count}
 
-주어진 문자열에서 특정한 단어(부분 문자열)가 등장하는 횟수를 세어 반환합니다.
+주어진 문자열에서 특정한 부분 문자열이 등장하는 횟수를 세어 반환합니다.
 
 <BlockImage module="common/text" id="text_count" />
 
@@ -148,9 +146,9 @@ TEXT.rstrip()
 HAYSTACK.count(NEEDLE)
 ```
 
-## 문자열에서 특정 문자 변경 {#text_replace}
+## 문자열에서 특정 문자열 변경 {#text_replace}
 
-문자열 내에서 특정 문자(부분 문자열)를 다른 문자로 일괄 변경합니다.
+문자열 내에서 특정한 부분 문자열을 다른 문자열로 일괄 변경합니다.
 
 <BlockImage module="common/text" id="text_replace" />
 

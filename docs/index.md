@@ -26,10 +26,15 @@ features:
 <script setup>
 import { onMounted } from 'vue'
 
-const KEYS = ['ko','en','es','fr','de','it','pt','ja','zh-hans','zh-hant',
-              'nl','ru','sv','pl','tr','id','vi','th','da','fi','no']
-const ALIAS = { zh: 'zh-hans', 'zh-cn': 'zh-hans', 'zh-tw': 'zh-hant',
-                'zh-hk': 'zh-hant', nb: 'no', nn: 'no', in: 'id' }
+const KEYS = [
+  'ko','en','es','fr','de','it','pt','ja','zh-hans','zh-hant',
+  'nl','ru','sv','pl','tr','id','vi','th','da','fi','no'
+]
+const ALIAS = { 
+  zh: 'zh-hans', 'zh-cn': 'zh-hans', 'zh-tw': 'zh-hant', 'zh-hk': 'zh-hant',
+  nb: 'no', nn: 'no', 
+  in: 'id' 
+}
 
 function pick() {
   // 1순위: 브라우저 언어

@@ -20,7 +20,6 @@ hamster_1 = Hamster(1)
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 바퀴 속도 설정하기 {#set_wheel_speed}
 
@@ -41,8 +40,6 @@ hamster = Hamster(0)
 
 hamster.set_wheel_speed('both', 50)
 ```
-
----
 
 ## 시간 이동하기 {#move_time}
 
@@ -69,8 +66,6 @@ hamster.move_time(5, wait=True)
 hamster.move_time(0.5, wait=False)
 ```
 
----
-
 ## 바퀴 속도 변경하기 {#change_speed}
 
 햄스터의 바퀴 속도를 변경합니다.  
@@ -93,8 +88,6 @@ hamster = Hamster(0)
 hamster.change_wheel_speed('both', 10)
 ```
 
----
-
 ## 정지하기 {#stop}
 
 햄스터의 이동을 멈춥니다.  
@@ -113,8 +106,6 @@ hamster = Hamster(0)
 hamster.stop()
 ```
 
----
-
 ## 말판 앞으로 한 칸 이동하기 {#grid_move}
 
 말판 위에서 정해진 대로 한 칸씩 움직입니다.
@@ -131,8 +122,6 @@ hamster = Hamster(0)
 
 hamster.grid_move()
 ```
-
----
 
 ## 말판에서 한번 돌기 {#grid_turn}
 
@@ -153,8 +142,6 @@ hamster = Hamster(0)
 hamster.grid_turn('left')
 ```
 
----
-
 ## 센서로 선 따라가기 {#trace_mode}
 
 햄스터가 바닥 센서를 이용하여 특정한 색의 선을 따라갑니다.
@@ -174,8 +161,6 @@ hamster = Hamster(0)
 
 hamster.trace_line('left', 'black')
 ```
-
----
 
 ## 교차로 이동 후 다음 교차로에서 멈추기 {#trace_until_grid}
 
@@ -199,8 +184,6 @@ hamster = Hamster(0)
 hamster.trace_intersection('left', 'black', wait=True)
 ```
 
----
-
 ## 선 따라가기 속도 설정 {#set_trace_speed}
 
 선 따라가기 속도를 설정합니다. 속도의 범위는 1 ~ 10 입니다.
@@ -220,8 +203,6 @@ hamster = Hamster(0)
 hamster.set_trace_speed(5)
 ```
 
----
-
 ## 선 따라가기 멈추기 {#stop_trace}
 
 햄스터의 선 따라가기 기능을 종료합니다.
@@ -238,8 +219,6 @@ hamster = Hamster(0)
 
 hamster.stop_trace()
 ```
-
----
 
 ## LED 색 설정하기 {#set_led_color}
 
@@ -261,8 +240,6 @@ hamster = Hamster(0)
 hamster.set_led_color('both', 'red')
 ```
 
----
-
 ## LED 끄기 {#turn_off}
 
 LED 색을 없앱니다.
@@ -281,8 +258,6 @@ hamster = Hamster(0)
 
 hamster.turn_off('both')
 ```
-
----
 
 ## 버저음 설정하기 {#sound_buzz}
 
@@ -305,8 +280,6 @@ hamster = Hamster(0)
 hamster.sound_buzz(440)
 ```
 
----
-
 ## 음계 연주하기 {#sound_note}
 
 햄스터가 지정된 음계를 재생합니다.
@@ -327,8 +300,6 @@ hamster = Hamster(0)
 hamster.sound_note('D', 5)
 ```
 
----
-
 ## 소리 끄기 {#sound_off}
 
 햄스터의 소리를 끕니다.
@@ -345,8 +316,6 @@ hamster = Hamster(0)
 
 hamster.sound_off()
 ```
-
----
 
 ## 바퀴 속도 값 {#wheel_speed}
 
@@ -367,8 +336,6 @@ hamster = Hamster(0)
 hamster.wheel_speed('left')
 ```
 
----
-
 ## 근접 센서 값 {#proximity}
 
 특정 근접 센서의 값
@@ -387,8 +354,6 @@ hamster = Hamster(0)
 
 hamster.proximity('left')
 ```
-
----
 
 ## 바닥 센서 값 {#floor}
 
@@ -409,8 +374,6 @@ hamster = Hamster(0)
 hamster.floor('left')
 ```
 
----
-
 ## 중력 가속도 값 {#acceleration}
 
 특정 축의 중력 가속도 값
@@ -430,8 +393,6 @@ hamster = Hamster(0)
 hamster.acceleration('x')
 ```
 
----
-
 ## 밝기 센서 값 {#light}
 
 밝기 센서 값
@@ -448,8 +409,6 @@ hamster = Hamster(0)
 
 hamster.light()
 ```
-
----
 
 ## 온도 센서 값 {#temperature}
 
@@ -468,8 +427,6 @@ hamster = Hamster(0)
 hamster.temperature()
 ```
 
----
-
 ## 신호 세기 값 {#signal_strength}
 
 신호 세기
@@ -487,8 +444,6 @@ hamster = Hamster(0)
 hamster.signal_strength()
 ```
 
----
-
 ## 배터리 전압 {#battery}
 
 배터리 전압
@@ -505,8 +460,6 @@ hamster = Hamster(0)
 
 hamster.battery()
 ```
-
----
 
 ## 상태 변경 여부 {#state_change}
 
@@ -540,8 +493,6 @@ hamster.acceleration('x') > 5000
 hamster.proximity('left') > 50 or hamster.proximity('right') > 50
 ```
 
----
-
 ## 입출력 포트 입력 모드 설정하기 {#io_mode}
 
 IO 포트의 입력 모드를 설정합니다.
@@ -561,8 +512,6 @@ hamster = Hamster(0)
 
 hamster.io_mode('both', 'analog_input')
 ```
-
----
 
 ## 입출력 포트 출력값 설정하기 {#set_output}
 
@@ -584,8 +533,6 @@ hamster = Hamster(0)
 hamster.set_output('both', 90)
 ```
 
----
-
 ## 입출력 포트 출력값 변경하기 {#change_output}
 
 지정한 IO 포트의 출력 값을 변경합니다.
@@ -605,8 +552,6 @@ hamster = Hamster(0)
 
 hamster.change_output('a', 10)
 ```
-
----
 
 ## 집게 열기 / 닫기 {#gripper}
 
@@ -631,8 +576,6 @@ hamster.open_gripper()
 hamster.close_gripper()
 ```
 
----
-
 ## 슈터 각도 설정하기 {#shooter}
 
 슈터 각도를 설정하여 제어합니다. 각도의 범위는 0 ~ 180 입니다.
@@ -651,8 +594,6 @@ hamster = Hamster(0)
 
 hamster.shooter(45)
 ```
-
----
 
 ## 입출력 포트 입력 값 {#input}
 

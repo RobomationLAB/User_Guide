@@ -20,7 +20,6 @@ turtle_1 = Turtle(1)
 | --- | --- | --- | --- | --- |
 | index | 드롭다운 옵션 | 인스턴스 번호 (0부터 시작) | 0 이상 정수 | 0 |
 
-<br>
 
 ## 바퀴 속도 설정하기 {#set_wheel_speed}
 
@@ -41,8 +40,6 @@ turtle = Turtle(0)
 
 turtle.set_wheel_speed('both', 50)
 ```
-
----
 
 ## 거리 이동하기 {#move_distance}
 
@@ -67,8 +64,6 @@ turtle = Turtle(0)
 
 turtle.move_distance(50, 'cm', wait=True)
 ```
-
----
 
 ## 시간 이동하기 {#move_time}
 
@@ -95,8 +90,6 @@ turtle.move_time(5, wait=True)
 turtle.move_time(0.5, wait=False)
 ```
 
----
-
 ## 제자리 돌기 {#turn_degree}
 
 제자리에서 회전할 방향과 각도를 설정합니다.  
@@ -119,8 +112,6 @@ turtle = Turtle(0)
 turtle.turn_degree('left', 90, wait=True)
 ```
 
----
-
 ## 바퀴 속도 변경하기 {#change_speed}
 
 터틀의 바퀴 속도를 변경합니다.  
@@ -142,8 +133,6 @@ turtle = Turtle(0)
 turtle.change_wheel_speed('both', 10)
 ```
 
----
-
 ## 정지하기 {#stop}
 
 터틀의 이동을 멈춥니다.
@@ -161,8 +150,6 @@ turtle = Turtle(0)
 turtle.stop()
 ```
 
----
-
 ## 바퀴가 움직이는 중인가? {#wheel_moving}
 
 바퀴가 움직이는 중이면 true, 멈춰있으면 false를 반환합니다.
@@ -179,8 +166,6 @@ turtle = Turtle(0)
 
 turtle.wheel_moving()
 ```
-
----
 
 ## 바퀴 기준 회전하기 {#pivot}
 
@@ -204,8 +189,6 @@ turtle = Turtle(0)
 
 turtle.pivot('left_wheel', 'forward', 90, wait=True)
 ```
-
----
 
 ## 원 그리며 돌기 {#pivot_circle}
 
@@ -231,8 +214,6 @@ turtle = Turtle(0)
 turtle.pivot_circle('left_forward', 90, 1, 'cm', wait=True)
 ```
 
----
-
 ## 센서로 선 따라가기 {#trace_line}
 
 바닥의 컬러 센서를 이용해, 특정 색의 선을 따라 이동합니다.
@@ -251,8 +232,6 @@ turtle = Turtle(0)
 
 turtle.trace_line('black')
 ```
-
----
 
 ## 특정 색까지 선 따라 이동하기 {#trace_line_until_color}
 
@@ -275,8 +254,6 @@ turtle = Turtle(0)
 turtle.trace_line_until_color('black', 'red', wait=True)
 ```
 
----
-
 ## 교차로 이동 후 다음 교차로에서 멈추기 {#intersection}
 
 터틀이 교차로에서 지정한 방향으로 이동한 뒤, 다음 교차로를 만날 때까지 이동합니다.  
@@ -298,8 +275,6 @@ turtle = Turtle(0)
 turtle.trace_intersection('left', wait=True)
 ```
 
----
-
 ## 선 따라가기 속도 설정 {#set_trace_speed}
 
 선 따라가기 속도를 설정합니다. 속도의 범위는 1 ~ 10 입니다.
@@ -318,8 +293,6 @@ turtle = Turtle(0)
 
 turtle.set_trace_speed(5)
 ```
-
----
 
 ## 선 따라가기 방향 변화량 설정 {#set_trace_gain}
 
@@ -340,8 +313,6 @@ turtle = Turtle(0)
 turtle.set_trace_gain(5)
 ```
 
----
-
 ## 선 따라가기 멈추기 {#stop_trace}
 
 터틀의 선 따라가기 기능을 종료합니다.
@@ -358,8 +329,6 @@ turtle = Turtle(0)
 
 turtle.stop_trace()
 ```
-
----
 
 ## LED 색 설정하기 {#set_led_color}
 
@@ -381,8 +350,6 @@ turtle = Turtle(0)
 turtle.set_led_color('red')
 ```
 
----
-
 ## 색상 카테고리 블록으로 LED 색 설정하기 {#set_led_color_with_block}
 
 색상 카테고리 블록 출력 (`[R, G, B]`) 을 입력으로 받아 머리 LED 색을 설정합니다.
@@ -401,8 +368,6 @@ turtle = Turtle(0)
 
 turtle.set_led_color(*Utils.color('red'))
 ```
-
----
 
 ## RGB 만큼 LED 색 변경하기 {#change_by_rgb}
 
@@ -425,8 +390,6 @@ turtle = Turtle(0)
 turtle.change_led_color(10, 0, 0)
 ```
 
----
-
 ## LED 끄기 {#turn_off}
 
 머리 LED 색을 없앱니다.
@@ -443,8 +406,6 @@ turtle = Turtle(0)
 
 turtle.turn_off()
 ```
-
----
 
 ## 버저음 설정하기 {#sound_buzz}
 
@@ -464,8 +425,6 @@ turtle = Turtle(0)
 
 turtle.sound_buzz(440)
 ```
-
----
 
 ## 음계 연주하기 {#sound_note}
 
@@ -487,8 +446,6 @@ turtle = Turtle(0)
 turtle.sound_note('D', 5)
 ```
 
----
-
 ## 소리 재생하기 {#sound_clip}
 
 터틀이 특정 사운드 클립을 재생합니다.
@@ -509,8 +466,6 @@ turtle = Turtle(0)
 turtle.sound_clip('siren', wait=True)
 ```
 
----
-
 ## 소리 끄기 {#sound_off}
 
 터틀의 소리를 끕니다.
@@ -528,8 +483,6 @@ turtle = Turtle(0)
 turtle.sound_off()
 ```
 
----
-
 ## 소리가 재생 중인가? {#sound_playing}
 
 소리가 재생 중이면 true, 재생 중이 아니면 false를 반환합니다.
@@ -546,8 +499,6 @@ turtle = Turtle(0)
 
 turtle.sound_playing()
 ```
-
----
 
 ## 바퀴 속도 값 {#wheel_speed}
 
@@ -568,8 +519,6 @@ turtle = Turtle(0)
 turtle.wheel_speed('left')
 ```
 
----
-
 ## 바닥 컬러 센서 값 {#floor}
 
 바닥의 컬러 센서 값
@@ -586,8 +535,6 @@ turtle = Turtle(0)
 
 turtle.floor()
 ```
-
----
 
 ## 카드 색깔 이름 값 {#card_color}
 
@@ -606,8 +553,6 @@ turtle = Turtle(0)
 turtle.card_color()
 ```
 
----
-
 ## 카드 색깔 패턴 값 {#card_pattern}
 
 바닥의 컬러 센서를 통해 읽은 카드 색깔의 패턴
@@ -624,8 +569,6 @@ turtle = Turtle(0)
 
 turtle.card_pattern()
 ```
-
----
 
 ## 중력 가속도 값 {#acceleration}
 
@@ -646,8 +589,6 @@ turtle = Turtle(0)
 turtle.acceleration('x')
 ```
 
----
-
 ## 온도 센서 값 {#temperature}
 
 온도 센서 값
@@ -664,8 +605,6 @@ turtle = Turtle(0)
 
 turtle.temperature()
 ```
-
----
 
 ## 신호 세기 값 {#signal_strength}
 
@@ -684,8 +623,6 @@ turtle = Turtle(0)
 turtle.signal_strength()
 ```
 
----
-
 ## 배터리 전압 {#battery}
 
 배터리 전압
@@ -702,8 +639,6 @@ turtle = Turtle(0)
 
 turtle.battery()
 ```
-
----
 
 ## 특정 색에 닿았는가? {#color_read}
 
@@ -724,8 +659,6 @@ turtle = Turtle(0)
 turtle.is_card_color('red')
 ```
 
----
-
 ## 카드 색깔 패턴이 ~ 인가? {#pattern_read}
 
 컬러센서에 인식된 카드 색깔의 패턴 일치 여부를 **참(True) / 거짓(False)** 으로 반환합니다.
@@ -745,8 +678,6 @@ turtle = Turtle(0)
 turtle.is_card_pattern('red_yellow')
 ```
 
----
-
 ## 등 버튼 상태 {#button}
 
 등에 있는 버튼이 눌려있거나 클릭했는지 여부
@@ -765,8 +696,6 @@ turtle = Turtle(0)
 
 turtle.button('pressed')
 ```
-
----
 
 ## 상태 변경 여부 {#state_change}
 
