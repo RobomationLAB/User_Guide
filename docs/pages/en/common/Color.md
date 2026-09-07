@@ -37,7 +37,7 @@ Clicking the white rounded square opens a circular color wheel for adjusting the
 
 | Name | Kind | Description | Range / Type | Default |
 | --- | --- | --- | --- | --- |
-| color | Color | Color wheel + brightness slider | r: 0–255, g: 0–255, b: 0–255 | - |
+| color | Color | Color wheel + brightness slider | r: 0~255, g: 0~255, b: 0~255 | - |
 
 ### Python
 ```python
@@ -55,9 +55,9 @@ The **RGB color** block builds an RGB array by specifying the red, green, and bl
 
 | Name | Kind | Description | Range / Type | Default |
 | --- | --- | --- | --- | --- |
-| r | Input (block) | Red value | Integer 0 – 255 | - |
-| g | Input (block) | Green value | Integer 0 – 255 | - |
-| b | Input (block) | Blue value | Integer 0 – 255 | - |
+| r | Input (block) | Red value | Integer 0 to 255 | - |
+| g | Input (block) | Green value | Integer 0 to 255 | - |
+| b | Input (block) | Blue value | Integer 0 to 255 | - |
 
 ### Python
 ```python

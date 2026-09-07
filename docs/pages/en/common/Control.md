@@ -70,7 +70,7 @@ Returns whether a specific key is being pressed as **true / false**.
 
 | Name | Kind | Description | Range / Type | Default |
 | --- | --- | --- | --- | --- |
-| key | Input | Key name | space, up, left, right, down, a–z, 0–9,<br>shift, ctrl, alt, enter, tab, esc, backspace | - |
+| key | Input | Key name | space, up, left, right, down, a~z, 0~9,<br>shift, ctrl, alt, enter, tab, esc, backspace | - |
 
 ### Python
 ```python

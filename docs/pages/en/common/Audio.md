@@ -19,7 +19,7 @@ Enabling the **repeat** checkbox plays the selected sound over and over.
 | Name | Kind | Description | Range / Type | Default |
 | --- | --- | --- | --- | --- |
 | clip | Dropdown option | Sound clip name | Clip names in the sound library | - |
-| volume | Input (field) | Volume | Integer 0 – 100 | 100 |
+| volume | Input (field) | Volume | Integer 0 to 100 | 100 |
 | repeat | Checkbox | Whether to repeat | TRUE / FALSE | FALSE |
 
 ### Python
