@@ -293,9 +293,19 @@ export default defineConfig({
             // 한글·한자·가나 토큰을 문자 bigram 으로 쪼개 넣어 토큰 중간도 매칭되게 한다 (CJK 검색의 통상적인 방식).
             // 색인·질의에 같은 토크나이저가 쓰이므로 '코딩' → ['코딩'] 이 '블록코딩' → ['블록코딩','블록','록코','코딩'] 과 맞는다.
             // 한 글자 질의는 prefix: true 가 bigram 의 앞글자를 잡아 처리된다.
+            //
+            // \p{M}(결합 기호)을 문자 클래스에 넣는 이유:
+            //   타이어 'ตั้งค่า' 는 성조·모음 기호가 \p{M} 이라 \p{L} 만으로는 ['ต','งค','า'] 로 조각난다.
+            //   터키어 'İşlev' 도 toLowerCase() 가 i + U+0307 로 바꿔 ['i','şlev'] 로 쪼개진다.
+            // U+0307 을 지우는 이유:
+            //   위를 고쳐도 색인은 'i̇şlev'(i+U+0307), 사용자 질의는 'işlev'(맨 i) 라 서로 안 맞는다.
+            //   결합 점을 양쪽에서 지워 같은 형태로 만든다. 21개 언어 중 이 기호를 쓰는 건 터키어뿐이다.
+            // 타이 문자(\u0E00-\u0E7F)를 bigram 대상에 넣는 이유:
+            //   타이어는 단어 사이에 공백이 없어 구절 하나가 토큰 하나가 된다. CJK 와 같은 처리가 필요하다.
             tokenize: (text) =>
-              (String(text).toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? []).flatMap((tok) =>
-                /[\u3131-\uD79D\u4E00-\u9FFF\u3040-\u30FF]/.test(tok)
+              (String(text).toLowerCase().replace(/\u0307/g, '')
+                 .match(/[\p{L}\p{N}\p{M}]+/gu) ?? []).flatMap((tok) =>
+                /[\u3131-\uD79D\u4E00-\u9FFF\u3040-\u30FF\u0E00-\u0E7F]/.test(tok)
                   ? [tok, ...Array.from({ length: Math.max(tok.length - 1, 0) },
                                         (_, i) => tok.slice(i, i + 2))]
                   : [tok]
