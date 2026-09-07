@@ -14,7 +14,7 @@
  * 이보다 크게 적어도 위 상한에 걸려 무효다. 
  * 더 넓히려면 --vp-layout-max-width 를 키우거나 사이드바 / aside 를 줄여야 한다.
  */
-.VPDoc.has-aside .content-container {
+.VPDoc .content-container {
   max-width: 784px !important;
 }
 
@@ -140,44 +140,251 @@
   }
 }
 
-/* ── 5. full-bleed 에서 본문·목차가 화면 가운데 떠 보이지 않게 ─────────────
- * 기본은 justify-content: center 라, 
- * 폭 제한을 풀면 본문+목차 묶음이 넓은 영역 가운데에 떠서 사이드바와 멀어진다. 
- * 본문은 사이드바 옆에, 목차는 우측 끝에 붙인다. 가운데 정렬을 원하면 center 로 바꾸면 된다. 
- */
+/* ── 5. 본문을 사이드바 옆에 붙이기 ───────────────────────────────────────
+ * 기본 테마는 1280px 이상에서 .container 에 justify-content: center 를 준다.
+ * full-bleed 로 폭 제한을 풀고 목차(aside)까지 없앤 상태에서는 본문이 넓은
+ * 영역 가운데에 떠서 사이드바와 멀어진다. 왼쪽에 붙인다. */
 @media (min-width: 1280px) {
-  .VPDoc.has-aside .container {
-    justify-content: space-between !important;
+  .VPDoc .container {
+    justify-content: flex-start !important;
   }
 }
 
-/* ── 6. 우측 목차(aside) 폭 확대 ───────────────────────────────────────────
- * full-bleed 로 폭 제한을 풀면 본문(784px 상한)과 목차 사이에 큰 빈 공간이
- * 남는다. 그 공간을 목차가 가져가게 한다.
+/* ── 6. (비어 있음) ───────────────────────────────────────────────────────
+ * 우측 목차(aside) 폭 조정 규칙이 있던 자리. themeConfig.aside: false 로
+ * aside 를 아예 렌더하지 않게 되어 제거했다. 목차를 되살리려면 config 에서
+ * aside 를 켜고 --guide-aside-width 류 규칙을 다시 넣으면 된다. */
+
+/* ── 8. 푸터를 문서 페이지에도 표시 ───────────────────────────────────────
+ * 기본 테마는 `.VPFooter.has-sidebar { display: none }` 으로 사이드바가 있는
+ * 페이지에서 푸터를 숨긴다. 이 사이트의 문서는 전부 사이드바를 가지므로
+ * 그대로 두면 푸터가 루트 히어로 페이지에서만 보인다. */
+.VPFooter.has-sidebar {
+  display: block !important;
+}
+
+/* VPFooter 는 VPContent 의 형제로 배치되어 사이드바 오프셋을 받지 않는다.
+ * (Layout.vue 에서 </VPContent> 다음에 <VPFooter /> 가 온다)
+ * 사이드바가 고정 표시되는 960px 이상에서만 그 폭을 비켜준다.
+ * 그 아래에서는 사이드바가 드로어라 오프셋이 필요 없다. */
+@media (min-width: 960px) {
+  .VPFooter.has-sidebar {
+    padding-left: calc(var(--vp-sidebar-width) + 32px) !important;
+  }
+}
+
+
+/* ── 9. 헤더 우측 아이콘을 모든 폭에서 노출 ───────────────────────────────
+ * 기본 테마의 폭별 동작:
+ *            ~767px      768~1279px    1280px~
+ *   햄버거      표시          숨김          숨김
+ *   '...'      숨김          표시          숨김
+ *   아이콘      숨김          숨김          표시
  *
- * 기본값은 세 군데에 하드코딩되어 있다:
- *   .aside            max-width: 256px  (= padding 32 + 내용 224)
- *   .aside-container  width: 224px      ← 목차 텍스트가 쓰는 폭
- *   .aside-curtain    width: 224px      ← 하단 페이드 그라디언트
- * 두 변수로 묶어 한 곳에서 조절한다.
+ * 즉 1280px 미만에서는 언어/테마/깃허브가 '...' 플라이아웃이나 햄버거 화면
+ * 안으로 들어간다. 이 사이트는 세 아이콘을 항상 노출하고, 중복이 되는
+ * '...' 와 햄버거를 감춘다.
  *
- * 320px 이면 `리스트에서 원하는 위치에 삽입` 같은 긴 항목도 한 줄에 들어간다.
- * (목차 링크 font-size 14px 기준 한글 약 22자)
- */
+ * 햄버거를 감춰도 내비게이션에 구멍이 생기지 않는다. 햄버거가 여는
+ * VPNavScreen 이 담는 것은 nav 링크(이미 제거) · 언어 · 테마 · 소셜뿐이고,
+ * 사이드바는 VPLocalNav 의 'Menu' 버튼이 담당한다.
+ *
+ * 언어 메뉴는 교체 컴포넌트(LanguageMenu.vue)에서 직접 처리한다. */
+/* 960px 이상: 헤더에 그대로 노출.
+ * 960px 미만: 헤더는 [메뉴] [로고] [검색] 세 개만 두고, 이 셋은 드로어 상단
+ * DrawerControls 로 옮긴다. display:none 으로만 감추는 이유는 VPSocialLink 가
+ * SSR 시 아이콘 CSS 를 등록하기 때문이다 — 컴포넌트를 없애면 vpi-social-github
+ * 아이콘이 드로어에서도 사라진다. */
+@media (min-width: 960px) {
+  .VPNavBarAppearance,
+  .VPNavBarSocialLinks {
+    display: flex !important;
+    align-items: center;
+  }
+}
+
+@media (max-width: 959px) {
+  /* 드로어가 있는 페이지에서만 세 컨트롤을 드로어로 옮긴다.
+   * 문서가 없는 언어는 드로어가 없으므로 헤더에 그대로 남겨야 한다 —
+   * 그러지 않으면 그 언어에서 모바일로 언어를 바꿀 방법이 사라진다. */
+  .Layout.has-drawer .VPNavBarAppearance,
+  .Layout.has-drawer .VPNavBarSocialLinks,
+  .Layout.has-drawer .VPNavBarTranslations {
+    display: none !important;
+  }
+
+  /* Menu 버튼이 헤더로 올라갔으므로 두 번째 줄 자체가 필요 없다 */
+  .VPLocalNav {
+    display: none !important;
+  }
+
+  /* 로고를 헤더 정중앙에.
+   *
+   * flex-grow 로는 안 된다: 기본 테마가 `.content { flex-grow: 1 }` 을 갖고
+   * 있어서 .title 에도 grow 를 주면 둘이 공간을 반씩 나눠 갖고, 로고는
+   * '왼쪽 절반의 중앙'(≈ 화면 25%)에 놓인다.
+   *
+   * 좌우 요소 폭에 대한 가정 없이 정확히 중앙에 두려면 절대 배치가 맞다.
+   * 메뉴 버튼(좌)·검색(우) 폭이 나중에 바뀌어도 영향을 받지 않는다. */
+  .Layout.has-drawer .VPNavBar .container {
+    position: relative !important;
+  }
+
+  .Layout.has-drawer .VPNavBar .container > .title {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    flex-grow: 0 !important;
+    padding-left: 0 !important;
+    width: auto !important;
+  }
+
+  .Layout.has-drawer .VPNavBarTitle {
+    flex-grow: 0 !important;
+  }
+
+  .Layout.has-drawer .VPNavBarTitle .title {
+    justify-content: center !important;
+    width: auto !important;
+  }
+}
+
+.VPNavBarExtra,
+.VPNavBarHamburger {
+  display: none !important;
+}
+
+/* 좁은 화면에서는 사이트 제목 텍스트를 감추고 로고 아이콘만 남긴다.
+ * 로고 + 제목 + 검색 + 아이콘 3개가 한 줄에 들어가지 않기 때문이다.
+ * 로고 자체가 홈 링크라 기능 손실은 없다. */
+@media (max-width: 767px) {
+  .VPNavBarTitle .title > span {
+    display: none;
+  }
+}
+
+
+/* ── 10. 로고 크기 ────────────────────────────────────────────────────────
+ * 기본값 24px 은 64px 높이 헤더에서 작아 보인다. */
 :root {
-  --guide-aside-width: 320px;   /* 목차 텍스트 폭 (기본 224px) */
-  --guide-aside-gap: 16px;      /* 본문과의 간격 (기본 32px) */
+  --vp-nav-logo-height: 34px;
 }
 
-.VPDoc .aside {
-  padding-left: var(--guide-aside-gap) !important;
-  max-width: calc(var(--guide-aside-width) + var(--guide-aside-gap)) !important;
+
+/* ── 11. 검색을 아이콘으로 만들어 언어 메뉴 옆에 붙이기 ───────────────────
+ * 기본 테마는 768px 이상에서 .VPNavBarSearch 에 flex-grow: 1 을 줘서 검색이
+ * 남는 폭을 다 먹고, 그 결과 나머지 아이콘들과 멀리 떨어진다.
+ * 여기서는 폭을 차지하지 않는 아이콘 버튼으로 만들어 언어 메뉴 바로 왼쪽에
+ * 오게 한다. (좁은 화면에서 자연히 아이콘이 되던 모습을 전 폭으로 통일) */
+.VPNavBarSearch {
+  flex-grow: 0 !important;
+  padding-left: 0 !important;
 }
 
-/* .aside-container 는 position: fixed 이고 left 가 없어서 static 위치를 쓴다. 즉 폭을 키우면 오른쪽으로 뻗는다. 
- * aside 발자국이 화면 우측 32px (.VPDoc padding-right) 앞에서 끝나므로 넘치지 않는다. */
- * 
-.VPDoc .aside-container,
-.VPDoc .aside-curtain {
-  width: var(--guide-aside-width) !important;
+/* 'Search' 문구와 ⌘K 키 표시를 감춰 아이콘만 남긴다.
+ * 버튼의 aria-label 은 그대로 있어 스크린리더에는 계속 '검색' 으로 읽힌다. */
+.DocSearch-Button-Placeholder,
+.DocSearch-Button-Keys {
+  display: none !important;
+}
+
+/* 다른 헤더 아이콘들과 같은 크기·호버 느낌으로 맞춘다 */
+.DocSearch-Button {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: transparent !important;
+
+  /* 기본 테마가 768px 이상에서 justify-content: flex-start 를 주기 때문에
+   * 이걸 덮지 않으면 아이콘이 버튼 왼쪽에 붙는다 (호버 배경에서 드러남). */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.DocSearch-Button:hover {
+  background: var(--vp-c-default-soft) !important;
+}
+
+/* 아이콘이 정중앙에 오지 않던 원인:
+ *   .DocSearch-Button .DocSearch-Search-Icon{top:1px; margin-right:8px; …}
+ * '검색' 문구를 감춰도 이 8px 오른쪽 여백이 flex 안에 남아 아이콘이 4px
+ * 왼쪽으로, top:1px 때문에 1px 아래로 치우친다. 둘 다 없앤다. */
+.DocSearch-Button .DocSearch-Search-Icon {
+  margin-right: 0 !important;
+  top: 0 !important;
+  color: var(--vp-c-text-1);
+}
+
+/* 검색과 언어 메뉴 사이 구분선.
+ * 기본 테마는 `.menu + .translations::before` 처럼 뒤따르는 형제에 ::before 로
+ * 구분선을 그리는데, nav 링크를 제거해 `.menu` 가 없어졌으므로 검색 기준으로
+ * 같은 규칙을 하나 더 둔다. */
+.search + .translations::before {
+  margin-right: 8px;
+  margin-left: 8px;
+  width: 1px;
+  height: 24px;
+  background-color: var(--vp-c-divider);
+  content: "";
+}
+
+
+/* ── 12. 모바일에서 상단 헤더 완전 고정 ──────────────────────────────────
+ * 기본 테마는 .VPNav 를 position: relative 로 두고 960px 이상에서만 fixed 로
+ * 바꾼다. 그래서 모바일에서는 스크롤하면 헤더가 위로 밀려 사라진다.
+ *
+ * sticky 로는 부족하다: sticky 는 문서 흐름 안에 남아 있어서 페이지 최상단에서
+ * 아래로 당기는 오버스크롤(고무줄 효과) 때 문서와 함께 밀려 내려온다.
+ * fixed 는 뷰포트에 고정되므로 흔들리지 않는다.
+ *
+ * fixed 는 요소를 흐름에서 빼내므로 본문을 헤더 높이만큼 내려줘야 한다.
+ * (960px 이상에서는 기본 테마가 같은 padding-top 을 이미 준다) */
+@media (max-width: 959px) {
+  .VPNav {
+    position: fixed !important;
+  }
+
+  .VPContent {
+    padding-top: var(--vp-nav-height) !important;
+  }
+}
+
+/* 오버스크롤 자체를 막아 헤더가 절대 흔들리지 않게 한다.
+ * 부수효과: 당겨서 새로고침(pull-to-refresh)이 비활성화된다. */
+html,
+body {
+  overscroll-behavior-y: none;
+}
+
+
+/* ── 13. 사이드바 페이지 항목의 접기 캐럿 숨김 ────────────────────────────
+ * 페이지 항목(level-1)은 그 자체가 링크이고, 클릭하면 해당 페이지로 이동하는
+ * 동시에 하위 ## 목록이 자동으로 펼쳐진다. 기본 테마의 이 로직 덕분이다:
+ *
+ *   watchPostEffect(() => {
+ *     (isActiveLink.value || hasActiveLink.value) && (collapsed.value = false)
+ *   })
+ *
+ * hasActiveLink 가 '자기 링크' 도 포함하므로, 보고 있는 페이지만 펼쳐지고
+ * 나머지는 접힌 상태로 남는다. 따라서 '>' 캐럿은 불필요한 노이즈다.
+ *
+ * 카테고리(level-0)의 캐럿은 그대로 둔다 — 그건 수동으로 접고 펼친다.
+ * 토글 핸들러는 .caret 에만 걸려 있어(.item 에는 없다) 숨겨도 링크 클릭에
+ * 영향이 없다. 다만 키보드로 페이지의 ## 목록을 수동 토글할 방법은 없어지고,
+ * 페이지로 이동해 자동 펼침에 의존하게 된다. */
+.VPSidebarItem.level-1 > .item > .caret {
+  display: none !important;
+}
+
+
+/* ── 14. 'Return to top' 제거 ─────────────────────────────────────────────
+ * themeConfig.outline: false 로 목차 항목은 비었지만 VPLocalNavOutlineDropdown
+ * 컴포넌트는 그대로 렌더되어, 내용 없이 'Return to top' 버튼만 남는다.
+ * 모바일 상단 바(VPLocalNav)에 그 버튼만 떠 있어 제거한다. */
+.VPLocalNavOutlineDropdown {
+  display: none !important;
 }
