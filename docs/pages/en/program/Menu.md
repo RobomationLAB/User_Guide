@@ -296,7 +296,7 @@ You can configure the program's basic settings.
 
 ### Language {#settings-language}
 Changes the language (locale) shown in the program.  
-The available languages are Korean and English.
+You can choose the language you want from a total of 21 languages.
 
 ### Dongle {#settings-dongle}
 - Disconnect: disconnects all the dongles connected to the program.
