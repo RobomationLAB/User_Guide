@@ -39,7 +39,7 @@ You can choose from various languages and voices to produce more natural-soundin
 
 | Name | Kind | Description | Range / Type | Default |
 | --- | --- | --- | --- | --- |
-| lang | Dropdown option | Language code | System TTS languages (e.g. `'ko-KR'`, `'en-US'`) | - |
+| lang | Dropdown option | Language code | TTS language codes for the 21 languages the program supports (e.g. `'ko-KR'`, `'en-US'`) | - |
 | voice | Dropdown option | Voice name | System TTS voice names (e.g. `'Google US English'`) | - |
 
 ### Python

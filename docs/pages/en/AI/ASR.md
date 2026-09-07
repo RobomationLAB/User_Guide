@@ -31,7 +31,7 @@ Sets the speech recognition language. It is set automatically even if you do not
 
 | Name | Kind | Description | Range / Type | Default |
 | --- | --- | --- | --- | --- |
-| unit | Dropdown option | Recognition language code | English (en-US), Korean (ko-KR) | - |
+| unit | Dropdown option | Recognition language code | Codes for the 21 languages the program supports (e.g. `'ko-KR'`, `'en-US'`) | - |
 
 ### Python
 ```python
