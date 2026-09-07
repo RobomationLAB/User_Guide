@@ -131,7 +131,7 @@ RobomationLAB은 블록 코딩 에디터와 파이썬 코딩 에디터를 함께
 RobomationLAB에서 제공하는 로봇 코딩 프로그램은,  
 Arduino의 H/W 개발 환경과 유사한 setup / loop 코드 구조를 기반으로, 순차 실행 방식과 병렬 실행 방식을 동시에 지원합니다.
 
-<BlockImage module="guide/CodingGuide" id="setup_loop" />
+<BlockImage module="program/Editor" id="block-structure" />
 
 Block Composer 에 처음 접속하면 다음과 같이 두 개의 빈 함수 블록이 작업공간에 표시되는데,  
 '시작하기' 블록은 `setup` 함수를, '무한 반복하기' 블록은 `loop` 함수를 나타냅니다.  
