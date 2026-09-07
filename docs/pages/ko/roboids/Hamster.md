@@ -231,7 +231,7 @@ LED 색을 설정합니다.
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
 | unit | 드롭다운 옵션 | 대상 LED | 왼쪽(left), 오른쪽(right), 양쪽(both) | - |
-| color | 드롭다운 옵션 | 색상 | 끄기(off), 파란색(blue), 초록색(green), 청록색(cyan), 빨간색(red), 자홍색(magenta), 노란색(yellow), 흰색(white) | - |
+| color | 드롭다운 옵션 | 색상 | 검정색(black), 파란색(blue), 초록색(green), 청록색(cyan), 빨간색(red), 자홍색(magenta), 노란색(yellow), 흰색(white) | - |
 
 ### Python
 ```python

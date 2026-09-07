@@ -538,7 +538,7 @@ turtle.floor()
 
 ## 카드 색깔 이름 값 {#card_color}
 
-바닥의 컬러 센서를 통해 읽은 카드의 색깔의 번호
+바닥의 컬러 센서를 통해 읽은 카드의 색깔의 이름
 
 <BlockImage module="roboids/Turtle" id="card_color" />
 

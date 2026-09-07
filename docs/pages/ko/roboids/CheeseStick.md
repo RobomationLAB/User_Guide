@@ -123,7 +123,7 @@ cheesestick.get_input('Sa')
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
 | unit | 드롭다운 옵션 | 펄스 입력 포트 | Sc, Lc | - |
-| option | 드롭다운 옵션 | 풀 모드 | 기본(default), 풀업(pull-up), 풀다운(pull-down) | - |
+| option | 드롭다운 옵션 | 풀 모드 | 펄스 (default), 펄스(풀업) (pull-up), 펄스(풀다운) (pull-down) | - |
 
 ### Python
 ```python

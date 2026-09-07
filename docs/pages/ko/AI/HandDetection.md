@@ -197,7 +197,7 @@ hand_detection.finger('right', 'thumb', 'last', 'y')
 | --- | --- | --- | --- | --- |
 | side | 드롭다운 옵션 | 손 방향 | 왼손(left), 오른손(right) | - |
 | unit | 드롭다운 옵션 | 손 부위 | 손(hand), 손바닥(palm) | - |
-| pos | 드롭다운 옵션 | | 사각형 정보 | 최소 x(min_x), 최대 x(max_x), 최소 y(min_y), 최대 y(max_y), 폭(width), 높이(height), 넓이(area) | - |
+| pos | 드롭다운 옵션 | 사각형 정보 | 최소 x(min_x), 최대 x(max_x), 최소 y(min_y), 최대 y(max_y), 폭(width), 높이(height), 넓이(area) | - |
 
 ### Python
 ```python
@@ -218,7 +218,7 @@ hand_detection.hand('right', 'palm', 'width')
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
 | unit1 | 입력값 (문자열) | 첫 번째 손 부위 | 손: `'side_unit'` (예: `'left_palm'`). side=left/right, unit=palm/wrist/hand  | - |
-| unit2 | 입력값 (문자열) | 두 번째 손 부위 | 손: `'side_unit'` (예: `'right_palm'`). side=left/right, unit=palm/wrist/hand, | - |
+| unit2 | 입력값 (문자열) | 두 번째 손 부위 | 손: `'side_unit'` (예: `'right_palm'`). side=left/right, unit=palm/wrist/hand | - |
 | type | 드롭다운 옵션 | 거리 종류 | 거리(생략 또는 None), 가로 거리(horizontal), 세로 거리(vertical) | None |
 
 ### Python

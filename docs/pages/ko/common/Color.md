@@ -66,7 +66,7 @@ Utils.color_rgb(red, green, blue)
 
 ## 무작위 색상 {#color_random}
 
-**RGB 색상** 블록은 호출될 때마다 무작위 RGB 색상을 생성합니다.
+**무작위 색상** 블록은 호출될 때마다 무작위 RGB 색상을 생성합니다.
 
 <BlockImage module="common/color" id="color_random" />
 
