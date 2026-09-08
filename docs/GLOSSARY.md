@@ -249,6 +249,36 @@ en  # When there are multiple instances
 **파일명 · 클래스명은 언어와 무관하게 고정**이다. 표시명만 언어별로 바뀐다.
 `Pio.md` → `Piobot`, `Raccoon4.md` → `RaccoonBot` 처럼 셋이 다 다른 경우가 있으니 주의한다.
 
+### 로봇 제품명은 현지화되지 않을 수 있다 — 이미지를 열어 확인한다
+
+`ja` 는 처음 촬영분에서 `ハムスターS` · `ピオボット` · `ラクーンボット` · `チーズスティック`
+처럼 음차되어 있었는데, **재촬영 후 `en` 과 같은 라틴 제품명으로 바뀌었다** —
+`HamsterS` · `Hamster` · `Piobot` · `Turtle` · `Beagle` · `RaccoonBot` · `Cheese Stick`.
+`CSD-01` 계열도 재촬영분에서 블록 라벨에 모델 번호가 들어왔다.
+
+그래서 **음차된 이름을 보면 그게 확정인지 의심해야 한다.** 확인 지점은 세 곳이고
+셋이 일치해야 한다:
+
+| 확인 지점 | 파일 |
+|---|---|
+| 블록 라벨의 접두어 | `images/<언어>/roboids/<로봇>/*.png` |
+| 로봇 선택 팝업 | `images/<언어>/program/Menu/robot-select.png` |
+| 코드 팔레트의 로봇 항목 | `images/<언어>/program/Editor/python-codes.png` |
+
+세 곳이 어긋나면 **더 나중에 촬영된 쪽이 맞다.** `ja` 에서 실제로 그랬다 —
+블록 이미지가 먼저 갱신되고 `program/` 스크린샷이 구버전으로 남아 있었는데,
+`workspace.png` 안의 블록 라벨이 구버전 접두어를 담고 있어서 그것으로 판별했다.
+`program/` 스크린샷 안에 블록이 찍혀 있으면 그게 촬영 시점의 증거가 된다.
+
+표시명이 바뀌면 **문서 11개 · 약 106행**이 영향을 받는다
+(`roboids/*.md` 7개의 `title`·h1·산문, `index.md`, `guide/CodingGuide.md` 의 클래스 표,
+`guide/CodingRules.md`, `program/Editor.md` 의 코드 팔레트 예시).
+
+라틴 제품명이 일본어·중국어 문장에 붙을 때는 **앞뒤에 공백을 넣는다**
+(`HamsterS の車輪速度` — `HamsterSの` 로 붙여 쓰지 않는다). 단 `「」`·`。`·`、` 앞뒤에는
+넣지 않는다. 표시명이 괄호 안 클래스명과 글자까지 같아지면 괄호를 지운다
+(`HamsterS(HamsterS)` → `HamsterS`). 다르면 남긴다 (`Piobot(Pio)`).
+
 | `AI/` 파일 | ko | en |
 |---|---|---|
 | `ASR` | 음성 인식 | **Speech to Text** |
@@ -374,4 +404,29 @@ en  # When there are multiple instances
 | 기본 (스텝 모터 모드) | basic / default | **normal** (`wave_step`) |
 | 라이다 켜기 / 끄기 | on / off | **start** / stop |
 | 상태 변경 여부 드롭다운 | state changed | **tilt forward** 등 |
+| 시작하기 / 무한 반복하기 (햇 블록) | start / repeat forever | **function setup** / **function loop** |
+| 제거하기 (우클릭) | remove from list | **Remove** |
+| 스코프 (콘솔 탭 · 블록) | scope | **Scope** — 언어별로 갈린다 |
+| 기본 코드 (코드 모음 루트) | basic code | **Codes** |
+| 켜기 / 끄기 (카메라) | show / hide | **On** / **Off** |
+
+`ja` 를 하면서 이 표의 자리들이 실제로 다시 갈렸다. 참고할 점 두 가지:
+
+- **햇 블록**은 `ko` 문구(`시작하기`)를 직역하면 틀린다. `ja` 는 `セットアップ関数` /
+  `ループ関数` 로, `en` 처럼 **함수 이름을 드러내는 쪽**이다. 이 두 라벨은
+  `program/Editor.md` · `guide/CodingGuide.md` · `guide/CodingRules.md` 세 문서에
+  걸쳐 나오므로 한 번 정하면 끝까지 같이 써야 한다.
+- **스코프**는 언어에 따라 단어가 바뀐다. `ja` 는 콘솔 탭과 블록 모두 `グラフ`(그래프)다.
+  `ko` 가 `스코프(Scope)` 라고 병기했다고 해서 그 언어도 'scope' 계열일 것이라고
+  가정하지 않는다.
+
+### 툴바 버튼 라벨과 팝업 제목이 다른 단어일 수 있다
+
+`ko` 는 툴바 버튼을 `예제`, 그 팝업 화면을 `예제 선택하기` 라고 부른다. `en` 은 둘 다
+`Example` 계열(`Example` / `Select Example`)이지만, **`ja` 는 아예 다른 단어를 쓴다** —
+툴바는 `例`, 팝업 제목은 `サンプルを選択` 다.
+
+그래서 `ko` 가 버튼을 인용한 자리에는 **툴바 이미지의 라벨**을, 화면을 인용한 자리에는
+**팝업 이미지의 제목**을 넣는다. 한쪽으로 통일하면 학생이 못 찾는 쪽이 생긴다.
+`program/Menu/toolbar.png` 와 `program/Menu/example-select.png` 를 둘 다 열어야 한다.
 
