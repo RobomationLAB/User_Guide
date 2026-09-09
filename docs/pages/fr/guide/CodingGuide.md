@@ -142,11 +142,11 @@ et ce code a la structure de base suivante.
 # structure de base du code Python
 from robomation import *
 
-# put setup code here, to run once:
+# placez le code d'initialisation ici, à exécuter une seule fois :
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# placez le code de contrôle ici, pour l'exécuter en boucle :
 def loop():
     pass
 ```
@@ -176,7 +176,7 @@ from robomation import *
 
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# placez le code d'initialisation ici, à exécuter une seule fois :
 def setup():
     # mettre les deux vitesses de roue à 50 et avancer
     hamster_s.set_wheel_speed('both', 50)
@@ -186,7 +186,7 @@ def setup():
     Utils.wait(1)   # attendre 1 seconde
     hamster_s.stop()
 
-# put control code here, to run repeatedly:
+# placez le code de contrôle ici, pour l'exécuter en boucle :
 def loop():
     pass
 ```
@@ -208,12 +208,12 @@ from robomation import *
 hamster_s = HamsterS(0)
 frame = 0
 
-# put setup code here, to run once:
+# placez le code d'initialisation ici, à exécuter une seule fois :
 def setup():
     global frame
     frame = 0
 
-# put control code here, to run repeatedly:
+# placez le code de contrôle ici, pour l'exécuter en boucle :
 def loop():
     global frame
     frame += 1  # chaque fois que la fonction loop est appelée, la valeur de frame augmente de 1
@@ -232,11 +232,11 @@ from robomation import *
 
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# placez le code d'initialisation ici, à exécuter une seule fois :
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# placez le code de contrôle ici, pour l'exécuter en boucle :
 def loop():
     # au moment où une tape arrive, l'événement est détecté
     if hamster_s.tap():               # si l'événement est détecté, True

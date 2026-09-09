@@ -142,11 +142,11 @@ und dieser Code hat die folgende Grundstruktur.
 # Grundstruktur des Python-Codes
 from robomation import *
 
-# put setup code here, to run once:
+# Setup-Code hier einfügen, der einmal ausgeführt wird:
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# Steuerungscode hier einfügen, der wiederholt ausgeführt wird:
 def loop():
     pass
 ```
@@ -176,7 +176,7 @@ from robomation import *
 
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# Setup-Code hier einfügen, der einmal ausgeführt wird:
 def setup():
     # beide Radgeschwindigkeiten auf 50 setzen und vorwärts fahren
     hamster_s.set_wheel_speed('both', 50)
@@ -186,7 +186,7 @@ def setup():
     Utils.wait(1)   # 1 Sekunde warten
     hamster_s.stop()
 
-# put control code here, to run repeatedly:
+# Steuerungscode hier einfügen, der wiederholt ausgeführt wird:
 def loop():
     pass
 ```
@@ -208,12 +208,12 @@ from robomation import *
 hamster_s = HamsterS(0)
 frame = 0
 
-# put setup code here, to run once:
+# Setup-Code hier einfügen, der einmal ausgeführt wird:
 def setup():
     global frame
     frame = 0
 
-# put control code here, to run repeatedly:
+# Steuerungscode hier einfügen, der wiederholt ausgeführt wird:
 def loop():
     global frame
     frame += 1  # bei jedem Aufruf der Funktion loop wird der Wert von frame um 1 erhöht
@@ -232,11 +232,11 @@ from robomation import *
 
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# Setup-Code hier einfügen, der einmal ausgeführt wird:
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# Steuerungscode hier einfügen, der wiederholt ausgeführt wird:
 def loop():
     # in dem Moment, in dem ein Tap auftritt, wird das Ereignis erkannt
     if hamster_s.tap():               # bei erkanntem Ereignis True

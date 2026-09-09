@@ -142,11 +142,11 @@ och koden får följande grundstruktur.
 # grundstruktur för Python-kod
 from robomation import *
 
-# put setup code here, to run once:
+# placera initieringskoden här, för att köra den en gång:
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# placera styrkoden här, för att köra den upprepade gånger:
 def loop():
     pass
 ```
@@ -176,7 +176,7 @@ from robomation import *
 
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# placera initieringskoden här, för att köra den en gång:
 def setup():
     # ställ in båda hjulens hastighet till 50 för att köra framåt
     hamster_s.set_wheel_speed('both', 50)
@@ -186,7 +186,7 @@ def setup():
     Utils.wait(1)   # vänta 1 sekund
     hamster_s.stop()
 
-# put control code here, to run repeatedly:
+# placera styrkoden här, för att köra den upprepade gånger:
 def loop():
     pass
 ```
@@ -208,12 +208,12 @@ from robomation import *
 hamster_s = HamsterS(0)
 frame = 0
 
-# put setup code here, to run once:
+# placera initieringskoden här, för att köra den en gång:
 def setup():
     global frame
     frame = 0
 
-# put control code here, to run repeatedly:
+# placera styrkoden här, för att köra den upprepade gånger:
 def loop():
     global frame
     frame += 1  # varje gång loop-funktionen anropas ökar variabeln frame med 1
@@ -232,11 +232,11 @@ from robomation import *
 
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# placera initieringskoden här, för att köra den en gång:
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# placera styrkoden här, för att köra den upprepade gånger:
 def loop():
     # i samma stund som en knackning sker känns händelsen av
     if hamster_s.tap():               # True när händelsen känns av

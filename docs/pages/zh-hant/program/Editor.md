@@ -211,11 +211,11 @@ from robomation import *
 # (如果有要使用的機器人，就宣告為實例，範例)
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# 在此放置僅執行一次的設定程式碼：
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# 在此放置重複執行的控制程式碼：
 def loop():
     pass
 ```

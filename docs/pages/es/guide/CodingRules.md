@@ -98,11 +98,11 @@ from robomation import *
 # (si vas a usar un robot, declararlo como instancia, ejemplo)
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# pon aquí el código de inicio, para ejecutarlo una vez:
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# pon aquí el código de control, para ejecutarlo repetidamente:
 def loop():
     pass
 ```

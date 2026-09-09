@@ -142,11 +142,11 @@ en die code heeft de volgende basisstructuur.
 # basisstructuur van de Python-code
 from robomation import *
 
-# put setup code here, to run once:
+# plaats hier setupcode die eenmaal wordt uitgevoerd:
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# plaats hier besturingscode die herhaaldelijk wordt uitgevoerd:
 def loop():
     pass
 ```
@@ -176,7 +176,7 @@ from robomation import *
 
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# plaats hier setupcode die eenmaal wordt uitgevoerd:
 def setup():
     # beide wielsnelheden op 50 zetten en vooruit rijden
     hamster_s.set_wheel_speed('both', 50)
@@ -186,7 +186,7 @@ def setup():
     Utils.wait(1)   # 1 seconde wachten
     hamster_s.stop()
 
-# put control code here, to run repeatedly:
+# plaats hier besturingscode die herhaaldelijk wordt uitgevoerd:
 def loop():
     pass
 ```
@@ -208,12 +208,12 @@ from robomation import *
 hamster_s = HamsterS(0)
 frame = 0
 
-# put setup code here, to run once:
+# plaats hier setupcode die eenmaal wordt uitgevoerd:
 def setup():
     global frame
     frame = 0
 
-# put control code here, to run repeatedly:
+# plaats hier besturingscode die herhaaldelijk wordt uitgevoerd:
 def loop():
     global frame
     frame += 1  # bij elke aanroep van de functie loop neemt de waarde van frame met 1 toe
@@ -232,11 +232,11 @@ from robomation import *
 
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# plaats hier setupcode die eenmaal wordt uitgevoerd:
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# plaats hier besturingscode die herhaaldelijk wordt uitgevoerd:
 def loop():
     # op het moment dat er een tik plaatsvindt, wordt de gebeurtenis opgemerkt
     if hamster_s.tap():               # bij een opgemerkte gebeurtenis True

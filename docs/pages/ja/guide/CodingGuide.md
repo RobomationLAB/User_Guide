@@ -143,11 +143,11 @@ Block Composer に初めてアクセスすると、次のように 2 つの空�
 # Python コードの基本構造
 from robomation import *
 
-# put setup code here, to run once:
+# ここに1回だけ実行するセットアップコードを入力します:
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# ここに繰り返し実行する制御コードを入力します:
 def loop():
     pass
 ```
@@ -177,7 +177,7 @@ from robomation import *
 
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# ここに1回だけ実行するセットアップコードを入力します:
 def setup():
     # 両方の車輪速度を 50 に設定して前に動かす
     hamster_s.set_wheel_speed('both', 50)
@@ -187,7 +187,7 @@ def setup():
     Utils.wait(1)   # 1 秒待つ
     hamster_s.stop()
 
-# put control code here, to run repeatedly:
+# ここに繰り返し実行する制御コードを入力します:
 def loop():
     pass
 ```
@@ -209,12 +209,12 @@ from robomation import *
 hamster_s = HamsterS(0)
 frame = 0
 
-# put setup code here, to run once:
+# ここに1回だけ実行するセットアップコードを入力します:
 def setup():
     global frame
     frame = 0
 
-# put control code here, to run repeatedly:
+# ここに繰り返し実行する制御コードを入力します:
 def loop():
     global frame
     frame += 1  # loop 関数が呼ばれるたびに frame 変数の値を 1 ずつ増やす
@@ -233,11 +233,11 @@ from robomation import *
 
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# ここに1回だけ実行するセットアップコードを入力します:
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# ここに繰り返し実行する制御コードを入力します:
 def loop():
     # Tap の動作が発生した瞬間に、イベントの発生を検出
     if hamster_s.tap():               # イベント検出時に True

@@ -143,11 +143,11 @@ Block Composer 에 처음 접속하면 다음과 같이 두 개의 빈 함수 �
 # 파이썬 코드 기본 구조
 from robomation import *
 
-# put setup code here, to run once:
+# 코드 시작 시 한 번 실행됩니다:
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# 코드 시작 시 10ms 간격으로 반복해서 실행됩니다:
 def loop():
     pass
 ```
@@ -177,7 +177,7 @@ from robomation import *
 
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# 코드 시작 시 한 번 실행됩니다:
 def setup():
     # 양쪽 바퀴 속도를 50으로 설정하여 앞으로 이동
     hamster_s.set_wheel_speed('both', 50)
@@ -187,7 +187,7 @@ def setup():
     Utils.wait(1)   # 1초 기다리기
     hamster_s.stop()
 
-# put control code here, to run repeatedly:
+# 코드 시작 시 10ms 간격으로 반복해서 실행됩니다:
 def loop():
     pass
 ```
@@ -209,12 +209,12 @@ from robomation import *
 hamster_s = HamsterS(0)
 frame = 0
 
-# put setup code here, to run once:
+# 코드 시작 시 한 번 실행됩니다:
 def setup():
     global frame
     frame = 0
 
-# put control code here, to run repeatedly:
+# 코드 시작 시 10ms 간격으로 반복해서 실행됩니다:
 def loop():
     global frame
     frame += 1  # loop 함수가 호출될 때마다 frame 변수의 값 1씩 증가
@@ -233,11 +233,11 @@ from robomation import *
 
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# 코드 시작 시 한 번 실행됩니다:
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# 코드 시작 시 10ms 간격으로 반복해서 실행됩니다:
 def loop():
     # Tap 동작이 발생하는 순간, 이벤트 발생 감지
     if hamster_s.tap():               # 이벤트 감지 시, True

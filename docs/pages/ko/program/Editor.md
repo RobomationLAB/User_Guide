@@ -211,11 +211,11 @@ from robomation import *
 # (사용할 로봇이 있다면 인스턴스로 선언, 예시)
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# 코드 시작 시 한 번 실행됩니다:
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# 코드 시작 시 10ms 간격으로 반복해서 실행됩니다:
 def loop():
     pass
 ```

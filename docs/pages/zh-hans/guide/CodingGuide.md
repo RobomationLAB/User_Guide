@@ -143,11 +143,11 @@ RobomationLAB 提供的机器人编程程序，
 # Python 代码的基本结构
 from robomation import *
 
-# put setup code here, to run once:
+# 在此处放置仅运行一次的初始化代码：
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# 在此处放置重复运行的控制代码：
 def loop():
     pass
 ```
@@ -177,7 +177,7 @@ from robomation import *
 
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# 在此处放置仅运行一次的初始化代码：
 def setup():
     # 把两侧的轮速度设为 50，向前移动
     hamster_s.set_wheel_speed('both', 50)
@@ -187,7 +187,7 @@ def setup():
     Utils.wait(1)   # 等待 1 秒
     hamster_s.stop()
 
-# put control code here, to run repeatedly:
+# 在此处放置重复运行的控制代码：
 def loop():
     pass
 ```
@@ -209,12 +209,12 @@ from robomation import *
 hamster_s = HamsterS(0)
 frame = 0
 
-# put setup code here, to run once:
+# 在此处放置仅运行一次的初始化代码：
 def setup():
     global frame
     frame = 0
 
-# put control code here, to run repeatedly:
+# 在此处放置重复运行的控制代码：
 def loop():
     global frame
     frame += 1  # 每次调用 loop 函数时，把 frame 变量的值加 1
@@ -233,11 +233,11 @@ from robomation import *
 
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# 在此处放置仅运行一次的初始化代码：
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# 在此处放置重复运行的控制代码：
 def loop():
     # Tap 动作发生的那一刻，检测到事件
     if hamster_s.tap():               # 检测到事件时为 True

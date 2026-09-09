@@ -143,11 +143,11 @@ og koden har denne grunnstrukturen.
 # Python-kodens grunnstruktur
 from robomation import *
 
-# put setup code here, to run once:
+# legg oppsettskode her, som skal kjøres én gang:
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# legg kontrollkode her, som skal kjøres gjentatte ganger:
 def loop():
     pass
 ```
@@ -177,7 +177,7 @@ from robomation import *
 
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# legg oppsettskode her, som skal kjøres én gang:
 def setup():
     # sett hastigheten til begge hjulene til 50, så roboten kjører fremover
     hamster_s.set_wheel_speed('both', 50)
@@ -187,7 +187,7 @@ def setup():
     Utils.wait(1)   # vent 1 sekund
     hamster_s.stop()
 
-# put control code here, to run repeatedly:
+# legg kontrollkode her, som skal kjøres gjentatte ganger:
 def loop():
     pass
 ```
@@ -209,12 +209,12 @@ from robomation import *
 hamster_s = HamsterS(0)
 frame = 0
 
-# put setup code here, to run once:
+# legg oppsettskode her, som skal kjøres én gang:
 def setup():
     global frame
     frame = 0
 
-# put control code here, to run repeatedly:
+# legg kontrollkode her, som skal kjøres gjentatte ganger:
 def loop():
     global frame
     frame += 1  # øk verdien av variabelen frame med 1 hver gang funksjonen loop kalles
@@ -233,11 +233,11 @@ from robomation import *
 
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# legg oppsettskode her, som skal kjøres én gang:
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# legg kontrollkode her, som skal kjøres gjentatte ganger:
 def loop():
     # i det øyeblikket det bankes, registreres hendelsen
     if hamster_s.tap():               # True når hendelsen registreres

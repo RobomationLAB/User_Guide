@@ -98,11 +98,11 @@ from robomation import *
 # (如果有要使用的机器人，就声明为实例，示例)
 hamster_s = HamsterS(0)
 
-# put setup code here, to run once:
+# 在此处放置仅运行一次的初始化代码：
 def setup():
     pass
 
-# put control code here, to run repeatedly:
+# 在此处放置重复运行的控制代码：
 def loop():
     pass
 ```
