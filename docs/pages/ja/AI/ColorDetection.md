@@ -99,7 +99,7 @@ color_detection = ColorDetection(0)
 color_detection.area_condition(50)
 ```
 
-## 1回検出する {#detect_once}
+## 色を1回検出 {#detect_once}
 
 認識できる色のうち、いま画面にある色を見つけて、1 回だけ領域を表示します。
 

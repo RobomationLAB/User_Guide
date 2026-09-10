@@ -99,7 +99,7 @@ color_detection = ColorDetection(0)
 color_detection.area_condition(50)
 ```
 
-## 偵測一次物體 {#detect_once}
+## 偵測一次顏色 {#detect_once}
 
 在可識別的顏色中，找出目前畫面里的顏色，只標示一次它們的區域。
 
@@ -116,7 +116,7 @@ color_detection = ColorDetection(0)
 color_detection.detect_once()
 ```
 
-## 開始 / 停止持續偵測物體 {#detect_continuous}
+## 開始 / 停止持續偵測顏色 {#detect_continuous}
 
 在可識別的顏色中，持續跟蹤目前畫面里的顏色，並在畫面上標示它們的區域。
 
