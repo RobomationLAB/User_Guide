@@ -8,6 +8,7 @@ on:
     paths-ignore:
       - 'docs/GLOSSARY.md'
       - 'docs/TRANSLATION.md'
+      - 'specs/**'
       - 'README.md'
       - '.claude/**'
   # Actions 탭에서 손으로 돌릴 수 있게 한다 (설정 변경 후 재배포 등).
