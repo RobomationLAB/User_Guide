@@ -146,7 +146,7 @@ object_detection.stop()
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| on | 드롭다운 옵션 | 표시 ON / OFF | 표시(on=True), 숨기기(off=False) | TRUE |
+| on | 드롭다운 옵션 | 표시 ON / OFF | 보이기(on=True), 숨기기(off=False) | TRUE |
 
 ### Python
 ```python
@@ -188,7 +188,7 @@ object_detection.object('bicycle', 'y')
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
 | unit | 드롭다운 옵션 | 사물 이름 | 사물 클래스 80개 | - |
-| pos | 드롭다운 옵션 | 사각형 정보 | min_x, max_x, min_y, max_y, width, height, area | - |
+| pos | 드롭다운 옵션 | 사각형 정보 | 최소 X(min_x), 최대 X(max_x), 최소 Y(min_y), 최대 Y(max_y), 너비(width), 높이(height), 넓이(area) | - |
 
 ### Python
 ```python

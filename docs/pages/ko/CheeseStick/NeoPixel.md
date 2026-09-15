@@ -159,7 +159,7 @@ LED 번호의 범위는 1 ~ 144입니다.
 | --- | --- | --- | --- | --- |
 | from_idx | 입력값 (필드) | 시작 픽셀 번호 (1부터 시작) | 1 이상 정수 | - |
 | to_idx | 입력값 (필드) | 끝 픽셀 번호 (1부터 시작) | 1 이상 정수 | - |
-| pattern | 드롭다운 옵션 | 색 패턴 이름 | `3_colors`, `6_colors`, `12_colors`, `red_green`, `red_blue`, `red_white`, `green_red`, `green_blue`, `green_white`, `blue_red`, `blue_green`, `blue_white`, `white_red`, `white_green`, `white_blue`, `black_red`, `black_green`, `black_blue`, `black_white`, `red_black`, `green_black`, `blue_black`, `white_black` | - |
+| pattern | 드롭다운 옵션 | 색 패턴 이름 | 3색(`3_colors`), 6색(`6_colors`), 12색(`12_colors`), 빨간색부터 초록색(`red_green`), 빨간색부터 파란색(`red_blue`), 빨간색부터 흰색(`red_white`), 초록색부터 빨간색(`green_red`), 초록색부터 파란색(`green_blue`), 초록색부터 흰색(`green_white`), 파란색부터 빨간색(`blue_red`), 파란색부터 초록색(`blue_green`), 파란색부터 흰색(`blue_white`), 흰색부터 빨간색(`white_red`), 흰색부터 초록색(`white_green`), 흰색부터 파란색(`white_blue`), 검정색부터 빨간색(`black_red`), 검정색부터 초록색(`black_green`), 검정색부터 파란색(`black_blue`), 검정색부터 흰색(`black_white`), 빨간색 점점 어둡게(`red_black`), 초록색 점점 어둡게(`green_black`), 파란색 점점 어둡게(`blue_black`), 흰색 점점 어둡게(`white_black`) | - |
 
 ### Python
 ```python

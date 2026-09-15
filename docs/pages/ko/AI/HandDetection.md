@@ -128,7 +128,7 @@ hand_detection.stop()
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| on | 드롭다운 옵션 | 표시 ON / OFF | 표시(on=True), 숨기기(off=False) | TRUE |
+| on | 드롭다운 옵션 | 표시 ON / OFF | 보이기(on=True), 숨기기(off=False) | TRUE |
 
 ### Python
 ```python

@@ -224,7 +224,7 @@ turtle.pivot_circle('left_forward', 90, 1, 'cm', wait=True)
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| line | 드롭다운 옵션 | 따라갈 선 색 | 검정(black), 빨강(red), 초록(green), 파랑(blue), 모든 색(any) | black |
+| line | 드롭다운 옵션 | 따라갈 선 색 | 검정색(black), 빨간색(red), 초록색(green), 파란색(blue), 아무 색(any) | black |
 
 ### Python
 ```python
@@ -243,8 +243,8 @@ turtle.trace_line('black')
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| line | 드롭다운 옵션 | 따라갈 선 색 | 검정(black), 빨강(red), 초록(green), 파랑(blue), 모든 색(any) | - |
-| color | 드롭다운 옵션 | 멈출 색 | 검정(black), 빨강(red), 초록(green), 청록(cyan), 파랑(blue), 자홍(magenta), 모든 색(any) | - |
+| line | 드롭다운 옵션 | 따라갈 선 색 | 검정색(black), 빨간색(red), 초록색(green), 파란색(blue), 아무 색(any) | - |
+| color | 드롭다운 옵션 | 멈출 색 | 검정색(black), 빨간색(red), 노란색(yellow), 초록색(green), 청록색(cyan), 파란색(blue), 자홍색(magenta), 아무 색(any) | - |
 | wait | 체크박스 | 완료 대기 여부 | TRUE / FALSE | TRUE |
 
 ### Python
@@ -650,7 +650,7 @@ turtle.battery()
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| color | 드롭다운 옵션 | 색깔 이름 | unknown, red, yellow, green, cyan, blue, magenta, white | - |
+| color | 드롭다운 옵션 | 색깔 이름 | 알 수 없음(unknown), 빨간색(red), 노란색(yellow), 초록색(green), 청록색(cyan), 파란색(blue), 자홍색(magenta), 흰색(white) | - |
 
 ### Python
 ```python
@@ -669,7 +669,7 @@ turtle.is_card_color('red')
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| pattern | 드롭다운 옵션 | 카드 패턴 이름 | `'red_yellow'`, `'red_green'`, `'blue_red'` | - |
+| pattern | 드롭다운 옵션 | 카드 패턴 이름 | 예) 빨간색-노란색(`'red_yellow'`), 빨간색-초록색(`'red_green'`), 파란색-빨간색(`'blue_red'`) | - |
 
 ### Python
 ```python

@@ -108,7 +108,7 @@ face_expression.stop()
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| on | 드롭다운 옵션 | 표시 ON / OFF | 표시(on=True), 숨기기(off=False) | TRUE |
+| on | 드롭다운 옵션 | 표시 ON / OFF | 보이기(on=True), 숨기기(off=False) | TRUE |
 
 ### Python
 ```python
@@ -253,7 +253,7 @@ face_expression.expression_detected()
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| unit | 드롭다운 옵션 | 표정 | 화남(angry), 역겨움(disgusted), 두려움(fearful), 행복(happy), 무표정(neutral), 슬픔(sad), 놀람(surprised) | - |
+| unit | 드롭다운 옵션 | 표정 | 화남(angry), 혐오(disgusted), 두려움(fearful), 행복(happy), 무표정(neutral), 슬픔(sad), 놀람(surprised) | - |
 
 ### Python
 ```python
@@ -273,7 +273,7 @@ face_expression.is_expression('sad')
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| unit | 드롭다운 옵션 | 표정 | angry, disgusted, fearful, happy, neutral, sad, surprised | - |
+| unit | 드롭다운 옵션 | 표정 | 화남(angry), 혐오(disgusted), 두려움(fearful), 행복(happy), 무표정(neutral), 슬픔(sad), 놀람(surprised) | - |
 
 ### Python
 ```python

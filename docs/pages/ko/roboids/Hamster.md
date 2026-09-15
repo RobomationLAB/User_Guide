@@ -504,7 +504,7 @@ IO 포트의 입력 모드를 설정합니다.
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
 | unit | 드롭다운 옵션 | 입출력 포트 | a, b, 양쪽(both) | - |
-| option | 드롭다운 옵션 | 입출력 모드 | analog_input, digital_input, digital_input_pullup, digital_input_pulldown, analog_input_voltage, servo_output, pwm_output, digital_output | - |
+| option | 드롭다운 옵션 | 입출력 모드 | 아날로그 입력(analog_input), 디지털 입력(digital_input), 서보 출력(servo_output), PWM 출력(pwm_output), 디지털 출력(digital_output) | - |
 
 ### Python
 ```python

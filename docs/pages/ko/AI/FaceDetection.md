@@ -108,7 +108,7 @@ face_detection.stop()
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| on | 드롭다운 옵션 | 표시 ON / OFF | 표시(on=True), 숨기기(off=False) | TRUE |
+| on | 드롭다운 옵션 | 표시 ON / OFF | 보이기(on=True), 숨기기(off=False) | TRUE |
 
 ### Python
 ```python
@@ -128,7 +128,7 @@ face_detection.display(False)
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| unit | 드롭다운 옵션 | 얼굴 부위 | 얼굴(face), 왼눈(left eye), 오른눈(right eye), 왼귀(left ear), 오른귀(right ear), 코(nose), 입(mouth) | - |
+| unit | 드롭다운 옵션 | 얼굴 부위 | 얼굴(face), 왼쪽 눈(left eye), 오른쪽 눈(right eye), 왼쪽 귀(left ear), 오른쪽 귀(right ear), 코(nose), 입(mouth) | - |
 | pos | 드롭다운 옵션 | 좌표 종류 | x, y | - |
 
 ### Python

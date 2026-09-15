@@ -108,7 +108,7 @@ aruco_marker.stop()
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| on | 드롭다운 옵션 | 표시 ON / OFF | 표시(on=True), 숨기기(off=False) | TRUE |
+| on | 드롭다운 옵션 | 표시 ON / OFF | 보이기(on=True), 숨기기(off=False) | TRUE |
 
 ### Python
 ```python
@@ -129,7 +129,7 @@ aruco_marker.display(False)
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
 | data | 입력값 (블록) | 마커 ID | 0 이상 정수 | - |
-| unit | 드롭다운 옵션 | 측정 종류 | x, y, min_x, max_x, min_y, max_y, width, height, area, rotation | - |
+| unit | 드롭다운 옵션 | 측정 종류 | x, y, 최소 X(min_x), 최대 X(max_x), 최소 Y(min_y), 최대 Y(max_y), 너비(width), 높이(height), 넓이(area), 회전각(rotation) | - |
 
 ### Python
 ```python

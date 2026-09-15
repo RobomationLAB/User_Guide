@@ -109,7 +109,7 @@ self_driving.stop()
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| on | 드롭다운 옵션 | 표시 ON / OFF | 표시(on=True), 숨기기(off=False) | TRUE |
+| on | 드롭다운 옵션 | 표시 ON / OFF | 보이기(on=True), 숨기기(off=False) | TRUE |
 
 ### Python
 ```python
@@ -151,7 +151,7 @@ self_driving.lane('right', 'distance')
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
 | color | 드롭다운 옵션 | 색깔 이름 | 빨강(red), 초록(green), 파랑(blue) | - |
-| unit | 드롭다운 옵션 | 좌표/크기 종류 | x, y, min_x, max_x, min_y, max_y, width, height, area | - |
+| unit | 드롭다운 옵션 | 좌표/크기 종류 | x, y, 최소 X(min_x), 최대 X(max_x), 최소 Y(min_y), 최대 Y(max_y), 너비(width), 높이(height), 넓이(area) | - |
 
 ### Python
 ```python

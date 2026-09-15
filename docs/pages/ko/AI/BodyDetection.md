@@ -108,7 +108,7 @@ body_detection.stop()
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| on | 드롭다운 옵션 | 표시 ON / OFF | 표시(on=True), 숨기기(off=False) | TRUE |
+| on | 드롭다운 옵션 | 표시 ON / OFF | 보이기(on=True), 숨기기(off=False) | TRUE |
 
 ### Python
 ```python
@@ -128,7 +128,7 @@ body_detection.display(False)
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| unit | 드롭다운 옵션 | 신체 부위 | 코(nose), 입(mouth), 왼눈(left eye), 오른눈(right eye), 왼귀(left ear), 오른귀(right ear), 왼쪽 어깨(left shoulder), 오른쪽 어깨(right shoulder), 왼쪽 팔꿈치(left elbow), 오른쪽 팔꿈치(right elbow), 왼쪽 손목(left wrist), 오른쪽 손목(right wrist), 왼손(left hand), 오른손(right hand), 왼쪽 엉덩이(left hip), 오른쪽 엉덩이(right hip), 왼쪽 무릎(left knee), 오른쪽 무릎(right knee), 왼쪽 발목(left ankle), 오른쪽 발목(right ankle), 왼발(left foot), 오른발(right foot) | - |
+| unit | 드롭다운 옵션 | 신체 부위 | 코(nose), 입(mouth), 왼쪽 눈(left eye), 오른쪽 눈(right eye), 왼쪽 귀(left ear), 오른쪽 귀(right ear), 왼쪽 어깨(left shoulder), 오른쪽 어깨(right shoulder), 왼쪽 팔꿈치(left elbow), 오른쪽 팔꿈치(right elbow), 왼쪽 손목(left wrist), 오른쪽 손목(right wrist), 왼손(left hand), 오른손(right hand), 왼쪽 엉덩이(left hip), 오른쪽 엉덩이(right hip), 왼쪽 무릎(left knee), 오른쪽 무릎(right knee), 왼쪽 발목(left ankle), 오른쪽 발목(right ankle), 왼발(left foot), 오른발(right foot) | - |
 | pos | 드롭다운 옵션 | 좌표 | x, y | - |
 
 ### Python

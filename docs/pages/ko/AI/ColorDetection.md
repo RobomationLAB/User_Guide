@@ -148,7 +148,7 @@ color_detection.stop()
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| on | 드롭다운 옵션 | 표시 ON / OFF | 표시(on=True), 숨기기(off=False) | TRUE |
+| on | 드롭다운 옵션 | 표시 ON / OFF | 보이기(on=True), 숨기기(off=False) | TRUE |
 
 ### Python
 ```python
@@ -168,8 +168,8 @@ color_detection.display(False)
 
 | 이름 | 구분 | 설명 | 범위 / 종류 | 기본값 |
 | --- | --- | --- | --- | --- |
-| color | 드롭다운 옵션 | 색깔 이름 | 검정(black), 빨강(red), 노랑(yellow), 초록(green), 청록(cyan), 파랑(blue), 자홍(magenta), 흰색(white) | - |
-| pos | 드롭다운 옵션 | 좌표/크기 종류 | x, y, min_x, max_x, min_y, max_y, width, height, area | - |
+| color | 드롭다운 옵션 | 색깔 이름 | 검은색(black), 빨간색(red), 노란색(yellow), 초록색(green), 청록색(cyan), 파란색(blue), 자홍색(magenta), 흰색(white) | - |
+| pos | 드롭다운 옵션 | 좌표/크기 종류 | x, y, 최소 X(min_x), 최대 X(max_x), 최소 Y(min_y), 최대 Y(max_y), 너비(width), 높이(height), 넓이(area) | - |
 
 ### Python
 ```python
