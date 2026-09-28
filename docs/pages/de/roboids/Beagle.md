@@ -199,7 +199,7 @@ Beagle spielt die angegebene Note.
 
 | Name | Art | Beschreibung | Bereich / Typ | Standardwert |
 | --- | --- | --- | --- | --- |
-| note | Dropdown-Option | Note | C, C#, D, D#, E, F, F#, G, G#, A, A#, B | - |
+| note | Dropdown-Option | Note | Do(C), Do#(C#), Re(D), Re#(D#), Mi(E), Fa(F), Fa#(F#), Sol(G), Sol#(G#), La(A), La#(A#), Si(B) | - |
 | octave | Dropdown-Option | Oktave | 1, 2, 3, 4, 5, 6, 7 | 4 |
 
 ### Python

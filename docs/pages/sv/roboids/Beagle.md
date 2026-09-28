@@ -200,7 +200,7 @@ Beagle spelar den angivna tonen.
 
 | Namn | Sort | Beskrivning | Intervall / Typ | Standard |
 | --- | --- | --- | --- | --- |
-| note | Rullgardinsalternativ | Ton | C, C#, D, D#, E, F, F#, G, G#, A, A#, B | - |
+| note | Rullgardinsalternativ | Ton | Do(C), Do#(C#), Re(D), Re#(D#), Mi(E), Fa(F), Fa#(F#), Sol(G), Sol#(G#), La(A), La#(A#), Si(B) | - |
 | octave | Rullgardinsalternativ | Oktav | 1, 2, 3, 4, 5, 6, 7 | 4 |
 
 ### Python
