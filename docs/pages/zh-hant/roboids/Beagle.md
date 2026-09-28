@@ -200,7 +200,7 @@ Beagle 播放指定的音符。
 
 | 名稱 | 類別 | 說明 | 範圍 / 種類 | 預設值 |
 | --- | --- | --- | --- | --- |
-| note | 下拉選項 | 音符 | 哆(C), 哆#(C#), 來(D), 來#(D#), 咪(E), 發(F), 發#(F#), 索(G), 索#(G#), 拉(A), 拉#(A#), 西(B) | - |
+| note | 下拉選項 | 音符 | Do(C), Do#(C#), Re(D), Re#(D#), Mi(E), Fa(F), Fa#(F#), Sol(G), Sol#(G#), La(A), La#(A#), Si(B) | - |
 | octave | 下拉選項 | 八度 | 1, 2, 3, 4, 5, 6, 7 | 4 |
 
 ### Python
@@ -440,9 +440,9 @@ beagle = Beagle(0)
 beagle.accelerometer('x') > 0.8
 ```
 
-## 啟動 / 停止激光雷達 {#lidar_power}
+## 啟動 / 停止光達 {#lidar_power}
 
-啟用或停用激光雷達感測器。
+啟用或停用光達感測器。
 
 <BlockImage module="roboids/Beagle" id="lidar_power" />
 
@@ -450,7 +450,7 @@ beagle.accelerometer('x') > 0.8
 
 | 名稱 | 類別 | 說明 | 範圍 / 種類 | 預設值 |
 | --- | --- | --- | --- | --- |
-| on | 下拉選項 | 激光雷達 ON / OFF | 啟動(on=True), 停止(off=False) | TRUE |
+| on | 下拉選項 | 光達 ON / OFF | 啟動(on=True), 停止(off=False) | TRUE |
 
 ### Python
 ```python
@@ -459,9 +459,9 @@ beagle = Beagle(0)
 beagle.lidar_power(True)
 ```
 
-## 激光雷達第 ~ 個值 {#lidar_value}
+## 光達第 ~ 個值 {#lidar_value}
 
-激光雷達感測器可以測量周圍 360 度範圍內與物體的距離。  
+光達感測器可以測量周圍 360 度範圍內與物體的距離。  
 以 Beagle 的前方（第 0 個值）為基准，沿逆時針方向編號每次加 1。
 
 <BlockImage module="roboids/Beagle" id="lidar_value" />
@@ -479,9 +479,9 @@ beagle = Beagle(0)
 beagle.lidar_value(0)
 ```
 
-## 激光雷達各方向的距離值 {#lidar_directions}
+## 光達各方向的距離值 {#lidar_directions}
 
-表示激光雷達感測器測得的前、後、兩側和斜方向的距離。  
+表示光達感測器測得的前、後、兩側和斜方向的距離。  
 輸出該方向左右各 45 度範圍內距離值的平均值。
 
 <BlockImage module="roboids/Beagle" id="lidar_directions" />
@@ -499,9 +499,9 @@ beagle = Beagle(0)
 beagle.lidar_directions('front')
 ```
 
-## 激光雷達已就緒？ {#lidar_state}
+## 光達已就緒？ {#lidar_state}
 
-回傳激光雷達是否已啟動，結果為 **true(True) / false(False)**。
+回傳光達是否已啟動，結果為 **true(True) / false(False)**。
 
 <BlockImage module="roboids/Beagle" id="lidar_state" />
 
