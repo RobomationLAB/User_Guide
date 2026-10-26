@@ -42,7 +42,7 @@ RobomationLAB은  **블록 코딩**, **스크립트 코딩** 등 다양한 방�
 
 - [**사용 가이드**](https://docs.robomationlab.com/) : 프로그램에서 제공하는 모든 기능과 블록, 코드에 대한 자세한 설명을 확인할 수 있어요.  
 
-- 🧩 [**RobomationLAB 시작하기**](https://robomationlab.com/BlockComposer) : 바로 코딩을 시작하고 싶다면 이 링크를 클릭하세요.  
+- 🧩 [**RobomationLAB 시작하기**](https://blockcomposer.robomationlab.com) : 바로 코딩을 시작하고 싶다면 이 링크를 클릭하세요.  
 
 <br>
 
